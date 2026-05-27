@@ -10,7 +10,7 @@
     content="Community-first, education-led, and passionate about metal detecting since 1994. Shop Minelab detectors, accessories, and get expert advice.">
 
   <!-- External stylesheet (custom component classes) -->
-  <link rel="stylesheet" href="style.css?v=2">
+  <link rel="stylesheet" href="style.css">
 
   <!-- Tailwind CSS Play CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -154,10 +154,10 @@
         <div class="flex items-center gap-4">
 
           <!-- Search bar — desktop/tablet only -->
-          <div class="hidden md:flex relative items-center">
+          <div class="hidden md:flex relative items-center group/search">
             <input type="text" placeholder="Search detectors..." id="search-input"
-              class="w-44 md:w-56 lg:w-64 py-1.5 pl-4 pr-9 rounded-full border-2 border-text-charcoal text-sm text-text-charcoal bg-bg-slate-light placeholder:text-text-muted focus:outline-none focus:border-primary-navy focus:bg-white focus:ring-2 focus:ring-primary-navy/10 transition-all duration-300">
-            <button class="absolute right-3 text-text-muted hover:text-primary-navy focus:outline-none"
+              class="w-44 md:w-56 lg:w-64 py-1.5 pl-4 pr-9 rounded-full border-2 border-text-charcoal text-sm text-text-charcoal bg-bg-slate-light placeholder:text-text-muted focus:outline-none focus:border-primary-navy focus:bg-white focus:ring-2 focus:ring-primary-navy/10 hover:border-primary-navy/60 hover:shadow-sm focus:w-48 md:focus:w-60 lg:focus:w-72 focus:shadow-md transition-all duration-300">
+            <button class="group absolute right-3 text-text-muted hover:text-primary-navy focus:outline-none"
               aria-label="Search">
               <i data-lucide="search" class="w-4 h-4"></i>
             </button>
@@ -165,7 +165,7 @@
 
           <!-- Search toggle — mobile only -->
           <button id="mobile-search-toggle"
-            class="md:hidden flex flex-col items-center gap-0.5 text-text-charcoal hover:text-primary-navy transition-colors duration-200 focus:outline-none"
+            class="group md:hidden flex flex-col items-center gap-0.5 text-text-charcoal hover:text-primary-navy transition-colors duration-200 focus:outline-none"
             aria-label="Search">
             <i data-lucide="search" class="w-5 h-5"></i>
             <span class="text-[10px] font-semibold leading-none tracking-wide hidden md:block">Search</span>
@@ -173,7 +173,7 @@
 
           <!-- Account: icon + label -->
           <button
-            class="flex flex-col items-center gap-0.5 text-text-charcoal hover:text-primary-navy transition-colors duration-200 focus:outline-none"
+            class="group flex flex-col items-center gap-0.5 text-text-charcoal hover:text-primary-navy transition-colors duration-200 focus:outline-none"
             aria-label="Account">
             <i data-lucide="user" class="w-5 h-5"></i>
             <span class="text-[10px] font-semibold leading-none tracking-wide hidden md:block">Account</span>
@@ -181,7 +181,7 @@
 
           <!-- Cart: icon + label + badge -->
           <button
-            class="relative flex flex-col items-center gap-0.5 text-text-charcoal hover:text-primary-navy transition-colors duration-200 focus:outline-none"
+            class="group relative flex flex-col items-center gap-0.5 text-text-charcoal hover:text-primary-navy transition-colors duration-200 focus:outline-none"
             aria-label="Shopping Cart" id="cart-btn">
             <i data-lucide="shopping-cart" class="w-5 h-5"></i>
             <span class="text-[10px] font-semibold leading-none tracking-wide hidden md:block">Cart</span>
@@ -203,8 +203,9 @@
 
         <!-- Nav drawer / inline links -->
         <ul class="nav-menu-drawer" id="nav-menu">
-          <!-- Mobile drawer close -->
-          <li class="lg:hidden self-end mb-4">
+          <!-- Mobile drawer header with logo and close button -->
+          <li class="lg:hidden flex items-center justify-between w-full mb-2 pb-4 border-b border-white/10">
+            <img src="assets/logo-white.png" alt="Crawfords Logo" class="h-8 w-auto">
             <button class="text-white hover:text-accent-gold p-1" id="drawer-close" aria-label="Close menu">
               <i data-lucide="x" class="w-6 h-6"></i>
             </button>
@@ -278,23 +279,22 @@
   </section>
 
   <!-- 4. PROMO TICKER BAR -->
-  <div
-    class="bg-[#f5f7fb] max-w-5xl mx-auto px-4 text-blue-light py-2 md:py-3 font-bold text-xs md:text-md text-left md:text-center">
-    <div class="flex items-center justify-around flex-col md:flex-row gap-1">
+  <div class="bg-[#f5f7fb] px-4 text-blue-light py-2 md:py-3 font-bold text-xs md:text-md text-left md:text-center">
+    <div class="flex items-center justify-around flex-col md:flex-row gap-1 container-custom">
       <span>£30 Off Selected Detectors</span>
       <span class="w-1 h-1 md:w-2 md:h-2 bg-blue-light rounded-full"></span>
       <span>Earn Diggits Rewards </span>
       <span class="w-1  h-1 md:w-2 md:h-2 bg-blue-light rounded-full"></span>
       <span class="flex items-center gap-1">
         Order within
-        <span class="font-bold text-md md:text-lg" id="dispatch-timer">02:15:30</span>
+        <span class="font-bold text-md md:text-lg min-w-[80px]" id="dispatch-timer">02:15:30</span>
         for same-day dispatch
       </span>
     </div>
   </div>
 
   <!-- 5. STATS SECTION -->
-  <section class="bg-white py-20 font-body">
+  <section class="bg-white py-10 font-body">
     <div class="container-custom">
       <div class="grid grid-cols-2 lg:grid-cols-4">
 
@@ -342,8 +342,65 @@
     </div>
   </section>
 
+  <!-- 5b. COUNTDOWN DELIVERY BANNER SECTION -->
+  <section class="py-2 bg-white font-body">
+
+    <div class="bg-[#0054A6] rounded-[16px] shadow-[0_10px_30px_rgba(0,84,166,0.12)] max-w-[90%] mx-auto">
+      <div
+        class="container-custom text-white py-5 px-6 md:px-10 flex flex-col md:flex-row items-center justify-between gap-6 ">
+        <!-- Left Side: Truck Icon with Speed Lines + Title -->
+        <div class="flex items-center gap-3 shrink-0">
+          <div class="flex items-center gap-1.5">
+            <!-- Fast Delivery SVG Icon -->
+            <svg id="_x31__x2C_5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80"
+              class="w-11 h-11 text-white fill-current">
+              <style>
+                .st0 {
+                  fill: #ffffff
+                }
+              </style>
+              <path class="st0"
+                d="M77.6 39.8L73 34l-7.2-14.3c-.4-.9-1.2-1.3-2.2-1.3H53.5V16c0-1.3-1-2.4-2.4-2.4H11.2c-1.3 0-2.4 1-2.4 2.4 0 1.3 1 2.4 2.4 2.4h37.6v16.8c0 1.3 1 2.4 2.4 2.4h18.6l3.5 4.5v12.4h-4.6c-1.1-4.2-4.8-7.2-9.3-7.2-4.5 0-8.2 3.1-9.3 7.2H36c-1-4.2-4.9-7.2-9.3-7.2-4.5 0-8.2 3.1-9.3 7.2h-6.2c-1.3 0-2.4 1-2.4 2.4 0 1.3 1 2.4 2.4 2.4h6.2c1.1 4.1 4.8 7.1 9.3 7.1 4.5 0 8.2-3 9.3-7.1h14.1c1.1 4.2 4.8 7.2 9.3 7.2 4.5 0 8.2-3.1 9.3-7.2h7c1.3 0 2.4-1 2.4-2.4V41.2c-.1-.5-.3-1.1-.5-1.4zM53.5 23.1h8.7l4.8 9.6H53.5v-9.6zM26.7 61.5c-2.7 0-4.8-2.2-4.8-4.8 0-2.7 2.2-4.8 4.8-4.8 2.7 0 4.8 2.2 4.8 4.8s-2.2 4.8-4.8 4.8zm32.7 0c-2.7 0-4.8-2.2-4.8-4.8 0-2.7 2.2-4.8 4.8-4.8 2.7 0 4.8 2.2 4.8 4.8 0 2.6-2.1 4.8-4.8 4.8z" />
+              <path class="st0"
+                d="M21.6 44.6c.1-1.2-1-2.4-2.4-2.4h-11c-1.3 0-2.4 1-2.4 2.4 0 1.3 1 2.4 2.4 2.4h11c1.4 0 2.4-1.1 2.4-2.4zm5.6-9.4c0-1.3-1-2.4-2.4-2.4H4.3c-1.3 0-2.4 1-2.4 2.4 0 1.3 1 2.4 2.4 2.4h20.4c1.4 0 2.5-1.1 2.5-2.4zm-19-7h20.4c1.3 0 2.4-1 2.4-2.4.1-1.3-1-2.4-2.3-2.4H8.2c-1.3 0-2.4 1-2.4 2.4.1 1.3 1.1 2.4 2.4 2.4z" />
+            </svg>
+          </div>
+          <div class="text-left">
+            <span class="font-extrabold text-[15px] tracking-wide block leading-none">Free Next Day</span>
+            <span class="font-extrabold text-[15px] tracking-wide block mt-1 leading-none text-white/95">Delivery</span>
+          </div>
+        </div>
+
+        <!-- Center: Countdown Clock -->
+        <div class="text-center shrink-0">
+          <div
+            class="font-extrabold text-3xl md:text-[42px] tracking-wider select-none font-mono tabular-nums text-white"
+            id="dispatch-timer-banner">
+            02 : 15 : 30
+          </div>
+        </div>
+
+        <!-- Right Center: Promo Text -->
+        <div class="text-center md:text-left max-w-xs md:max-w-sm">
+          <p class="text-xs md:text-sm font-semibold leading-snug text-white/95">
+            Save on delivery for orders over £50 with DPD
+          </p>
+        </div>
+
+        <!-- Right Side: CTA Button -->
+        <div class="shrink-0 w-full md:w-auto text-center">
+          <a href="#detectors"
+            class="inline-block w-full md:w-auto bg-[#f97316] hover:bg-[#ea580c] hover:scale-105 active:scale-95 text-white font-extrabold text-xs md:text-sm px-6 py-3.5 rounded-lg shadow-[0_4px_14px_rgba(249,115,22,0.2)] hover:shadow-[0_6px_20px_rgba(249,115,22,0.3)] transition-all duration-200 uppercase tracking-wider text-center">
+            Shop Bestsellers
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- 6. TOP PICKS SECTION -->
-  <section class="py-6 md:py-24 font-body" id="detectors">
+  <section class="py-10 md:py-20 font-body" id="detectors">
     <div class="container-custom">
       <h2 class="text-2xl md:text-5xl font-bold mb-5 text-blue-light text-center">
         Top Picks for Every Detectorist
@@ -436,8 +493,8 @@
               Grade</span>
             <div
               class="bg-bg-slate-light rounded-xl h-56 flex items-center justify-center mb-5 overflow-hidden relative">
-              <img src="assets/product-image.png" alt="Minelab Manticore"
-                class="max-h-full object-contain group-hover:scale-108 transition-transform duration-300 scale-x-[-1]">
+              <img src="assets/product-image.png" alt="Minelab Equinox 900"
+                class="max-h-full object-contain group-hover:scale-108 transition-transform duration-300">
             </div>
 
             <h3 class="text-xl font-bold mb-1 text-blue-light font-display">Manticore</h3>
@@ -532,8 +589,8 @@
               class="absolute top-4 left-4 bg-accent-orange text-white text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Popular</span>
             <div
               class="bg-bg-slate-light rounded-xl h-56 flex items-center justify-center mb-5 overflow-hidden relative">
-              <img src="assets/product-image.png" alt="Minelab Vanquish 540"
-                class="max-h-full object-contain group-hover:scale-108 transition-transform duration-300 scale-x-[-1]">
+              <img src="assets/product-image.png" alt="Minelab Equinox 900"
+                class="max-h-full object-contain group-hover:scale-108 transition-transform duration-300">
             </div>
 
             <h3 class="text-xl font-bold mb-1 text-blue-light font-display">Vanquish 540</h3>
@@ -1187,46 +1244,46 @@
           <div class="grid grid-cols-3 gap-3 md:gap-4 w-full">
             <!-- Metal Detectors -->
             <a href="#detectors"
-              class="bg-white rounded-2xl p-2 md:p-2 flex flex-col items-center justify-center text-center gap-2 shadow-[0_8px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_15px_35px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 border border-slate-100/50 aspect-square group">
-              <img src="assets/cat-1.png" alt="" class="w-20">
+              class="bg-white rounded-2xl p-2 md:p-2 flex flex-col items-center justify-center text-center gap-1.5 md:gap-2 shadow-[0_8px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_15px_35px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 border border-slate-100/50 h-28 sm:h-36 md:h-40 group">
+              <img src="assets/cat-1.png" alt="" class="w-12 sm:w-16 md:w-20 object-contain">
               <h3 class="text-xs font-bold text-primary-navy font-display tracking-wide leading-tight">Metal
                 Detectors</h3>
             </a>
 
             <!-- Accessories -->
             <a href="#"
-              class="bg-white rounded-2xl p-2 md:p-2 flex flex-col items-center justify-center text-center gap-2 shadow-[0_8px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_15px_35px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 border border-slate-100/50 aspect-square group">
-              <img src="assets/cat-2.png" alt="" class="w-20">
+              class="bg-white rounded-2xl p-2 md:p-2 flex flex-col items-center justify-center text-center gap-1.5 md:gap-2 shadow-[0_8px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_15px_35px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 border border-slate-100/50 h-28 sm:h-36 md:h-40 group">
+              <img src="assets/cat-2.png" alt="" class="w-12 sm:w-16 md:w-20 object-contain">
               <h3 class="text-xs font-bold text-primary-navy font-display tracking-wide leading-tight">Accessories</h3>
             </a>
 
             <!-- Brands -->
             <a href="#"
-              class="bg-white rounded-2xl p-2 md:p-2 flex flex-col items-center justify-center text-center gap-2 shadow-[0_8px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_15px_35px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 border border-slate-100/50 aspect-square group">
-              <img src="assets/cat-3.png" alt="" class="w-20">
+              class="bg-white rounded-2xl p-2 md:p-2 flex flex-col items-center justify-center text-center gap-1.5 md:gap-2 shadow-[0_8px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_15px_35px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 border border-slate-100/50 h-28 sm:h-36 md:h-40 group">
+              <img src="assets/cat-3.png" alt="" class="w-12 sm:w-16 md:w-20 object-contain">
               <h3 class="text-xs font-bold text-primary-navy font-display tracking-wide leading-tight">Brands</h3>
             </a>
 
             <!-- Beginner Guides -->
             <a href="#"
-              class="bg-white rounded-2xl p-2 md:p-2 flex flex-col items-center justify-center text-center gap-2 shadow-[0_8px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_15px_35px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 border border-slate-100/50 aspect-square group">
-              <img src="assets/cat-4.png" alt="" class="w-20">
+              class="bg-white rounded-2xl p-2 md:p-2 flex flex-col items-center justify-center text-center gap-1.5 md:gap-2 shadow-[0_8px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_15px_35px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 border border-slate-100/50 h-28 sm:h-36 md:h-40 group">
+              <img src="assets/cat-4.png" alt="" class="w-12 sm:w-16 md:w-20 object-contain">
               <h3 class="text-xs font-bold text-primary-navy font-display tracking-wide leading-tight">Beginner Guides
               </h3>
             </a>
 
             <!-- Finds & Tools -->
             <a href="#"
-              class="bg-white rounded-2xl p-2 md:p-2 flex flex-col items-center justify-center text-center gap-2 shadow-[0_8px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_15px_35px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 border border-slate-100/50 aspect-square group">
-              <img src="assets/cat-5.png" alt="" class="w-20">
+              class="bg-white rounded-2xl p-2 md:p-2 flex flex-col items-center justify-center text-center gap-1.5 md:gap-2 shadow-[0_8px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_15px_35px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 border border-slate-100/50 h-28 sm:h-36 md:h-40 group">
+              <img src="assets/cat-5.png" alt="" class="w-12 sm:w-16 md:w-20 object-contain">
               <h3 class="text-xs font-bold text-primary-navy font-display tracking-wide leading-tight">Finds & Tools
               </h3>
             </a>
 
             <!-- Offers & Bundles -->
             <a href="#offers"
-              class="bg-white rounded-2xl p-2 md:p-2 flex flex-col items-center justify-center text-center gap-2 shadow-[0_8px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_15px_35px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 border border-slate-100/50 aspect-square group">
-              <img src="assets/cat-6.png" alt="" class="w-20">
+              class="bg-white rounded-2xl p-2 md:p-2 flex flex-col items-center justify-center text-center gap-1.5 md:gap-2 shadow-[0_8px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_15px_35px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 border border-slate-100/50 h-28 sm:h-36 md:h-40 group">
+              <img src="assets/cat-6.png" alt="" class="w-12 sm:w-16 md:w-20 object-contain">
               <h3 class="text-xs font-bold text-primary-navy font-display tracking-wide leading-tight">Offers & Bundles
               </h3>
             </a>
@@ -1246,25 +1303,25 @@
             <!-- Minelab -->
             <div
               class="bg-white w-[100px] h-[100px] md:w-[140px] md:h-[124px] rounded-2xl flex items-center justify-center shadow-[0_8px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_15px_35px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 border border-slate-100/50">
-              <img src="assets/sb1.png" alt="">
+              <img src="assets/sb1.png" alt="" class="max-w-[75%]">
             </div>
 
             <!-- Nokta Makro -->
             <div
               class="bg-white w-[100px] h-[100px] md:w-[140px] md:h-[124px] rounded-2xl flex items-center justify-center shadow-[0_8px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_15px_35px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 border border-slate-100/50">
-              <img src="assets/sb2.png" alt="">
+              <img src="assets/sb2.png" alt="" class="max-w-[75%]">
             </div>
 
             <!-- XP -->
             <div
               class="bg-white w-[100px] h-[100px] md:w-[140px] md:h-[124px] rounded-2xl flex items-center justify-center shadow-[0_8px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_15px_35px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 border border-slate-100/50">
-              <img src="assets/sb3.png" alt="">
+              <img src="assets/sb3.png" alt="" class="max-w-[75%]">
             </div>
 
             <!-- Garrett -->
             <div
               class="bg-white w-[100px] h-[100px] md:w-[140px] md:h-[124px] rounded-2xl flex items-center justify-center shadow-[0_8px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_15px_35px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 border border-slate-100/50">
-              <img src="assets/sb4.png" alt="">
+              <img src="assets/sb4.png" alt="" class="max-w-[75%]">
             </div>
           </div>
         </div>
@@ -1329,8 +1386,8 @@
 
   <!-- 9. START YOUR DETECTING JOURNEY (GUIDES) -->
   <section
-    class="relative bg-primary-navy text-text-light overflow-hidden font-body w-full h md:h-[75vh] min-h-[260px] md:min-h-[600px]">
-    <img src="assets/hero-image.png" alt="" class="w-full d-block h-full object-cover absolute top-0 left-0">
+    class="relative bg-primary-navy text-text-light overflow-hidden font-body w-full h md:h-[60vh] min-h-[260px] md:min-h-[480px]">
+    <img src="assets/main-image.png" alt="" class="w-full d-block h-full object-cover absolute top-0 left-0">
     <div class="h-full flex flex-col relative z-10 py-4 md:py-10 container-custom">
       <div class="max-w-2xl">
         <h1
@@ -1388,7 +1445,7 @@
 
           <!-- Guide Card 1 -->
           <div
-            class="product-card flex-none w-[80%] sm:w-[320px] md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] shrink-0 snap-start bg-white border border-slate-100/80 rounded-[32px] p-5 shadow-[0_15px_30px_rgba(11,34,64,0.04)] hover:-translate-y-2 hover:shadow-[0_20px_45px_rgba(11,34,64,0.08)] transition-all duration-300 flex flex-col justify-between">
+            class="product-card flex-none w-full sm:w-[320px] md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] shrink-0 snap-start bg-white border border-slate-100/80 rounded-[32px] p-5 hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between">
             <div>
               <div class="rounded-2xl overflow-hidden aspect-[1.6] flex items-center justify-center mb-6 bg-slate-50">
                 <img src="assets/p1.png" alt="The Beginner Hub" class="w-full h-full object-cover">
@@ -1408,7 +1465,7 @@
 
           <!-- Guide Card 2 -->
           <div
-            class="product-card flex-none w-[80%] sm:w-[320px] md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] shrink-0 snap-start bg-white border border-slate-100/80 rounded-[32px] p-5 shadow-[0_15px_30px_rgba(11,34,64,0.04)] hover:-translate-y-2 hover:shadow-[0_20px_45px_rgba(11,34,64,0.08)] transition-all duration-300 flex flex-col justify-between">
+            class="product-card flex-none w-full sm:w-[320px] md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] shrink-0 snap-start bg-white border border-slate-100/80 rounded-[32px] p-5 hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between">
             <div>
               <div class="rounded-2xl overflow-hidden aspect-[1.6] flex items-center justify-center mb-6 bg-slate-50">
                 <img src="assets/p2.png" alt="Training & Pro Tips" class="w-full h-full object-cover">
@@ -1428,7 +1485,67 @@
 
           <!-- Guide Card 3 -->
           <div
-            class="product-card flex-none w-[80%] sm:w-[320px] md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] shrink-0 snap-start bg-white border border-slate-100/80 rounded-[32px] p-5 shadow-[0_15px_30px_rgba(11,34,64,0.04)] hover:-translate-y-2 hover:shadow-[0_20px_45px_rgba(11,34,64,0.08)] transition-all duration-300 flex flex-col justify-between">
+            class="product-card flex-none w-full sm:w-[320px] md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] shrink-0 snap-start bg-white border border-slate-100/80 rounded-[32px] p-5 hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between">
+            <div>
+              <div class="rounded-2xl overflow-hidden aspect-[1.6] flex items-center justify-center mb-6 bg-slate-50">
+                <img src="assets/p3.png" alt="Legal & Heritage" class="w-full h-full object-cover">
+              </div>
+              <h3 class="text-3xl font-bold text-blue-light mb-2 font-display">Legal & Heritage</h3>
+              <p class="text-[15px] font-medium text-text-charcoal leading-relaxed mb-6">
+                Ethics, Permissions & The Treasure Act
+              </p>
+            </div>
+            <div>
+              <button
+                class="bg-[#0054A6] hover:bg-[#0b2240] text-white text-xs font-bold px-4 py-2.5 rounded-lg transition-colors duration-200">
+                Read More
+              </button>
+            </div>
+          </div>
+
+          <!-- Guide Card 1 -->
+          <div
+            class="product-card flex-none w-full sm:w-[320px] md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] shrink-0 snap-start bg-white border border-slate-100/80 rounded-[32px] p-5 hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between">
+            <div>
+              <div class="rounded-2xl overflow-hidden aspect-[1.6] flex items-center justify-center mb-6 bg-slate-50">
+                <img src="assets/p1.png" alt="The Beginner Hub" class="w-full h-full object-cover">
+              </div>
+              <h3 class="text-3xl font-bold text-blue-light mb-2 font-display">The Beginner Hub</h3>
+              <p class="text-[15px] font-medium text-text-charcoal leading-relaxed mb-4">
+                Start Here: The Absolute Beginner’s Guide
+              </p>
+            </div>
+            <div>
+              <button
+                class="bg-[#0054A6] hover:bg-[#0b2240] text-white text-xs font-bold px-4 py-2.5 rounded-lg transition-colors duration-200">
+                Read More
+              </button>
+            </div>
+          </div>
+
+          <!-- Guide Card 2 -->
+          <div
+            class="product-card flex-none w-full sm:w-[320px] md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] shrink-0 snap-start bg-white border border-slate-100/80 rounded-[32px] p-5 hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between">
+            <div>
+              <div class="rounded-2xl overflow-hidden aspect-[1.6] flex items-center justify-center mb-6 bg-slate-50">
+                <img src="assets/p2.png" alt="Training & Pro Tips" class="w-full h-full object-cover">
+              </div>
+              <h3 class="text-3xl font-bold text-blue-light mb-2 font-display">Training & Pro Tips</h3>
+              <p class="text-[15px] font-medium text-text-charcoal leading-relaxed mb-6">
+                Advanced Recovery & Target ID Techniques
+              </p>
+            </div>
+            <div>
+              <button
+                class="bg-[#0054A6] hover:bg-[#0b2240] text-white text-xs font-bold px-4 py-2.5 rounded-lg transition-colors duration-200">
+                Read More
+              </button>
+            </div>
+          </div>
+
+          <!-- Guide Card 3 -->
+          <div
+            class="product-card flex-none w-full sm:w-[320px] md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] shrink-0 snap-start bg-white border border-slate-100/80 rounded-[32px] p-5 hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between">
             <div>
               <div class="rounded-2xl overflow-hidden aspect-[1.6] flex items-center justify-center mb-6 bg-slate-50">
                 <img src="assets/p3.png" alt="Legal & Heritage" class="w-full h-full object-cover">
@@ -1495,49 +1612,50 @@
       <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-2">
 
         <!-- Card 1 -->
-        <div
-          style="border-top: 1px solid rgba(0, 84, 166, 0.4); border-right: 5px solid rgba(0, 84, 166, 0.8); border-bottom: 5px solid rgba(0, 84, 166, 0.8); border-left: 1px solid rgba(0, 84, 166, 0.4);"
-          class="rounded-[32px] p-4 flex flex-col items-start text-left bg-white hover:shadow-[0_15px_30px_rgba(11,34,64,0.06)] hover:-translate-y-1 transition-all duration-300">
-          <img src="assets/t1.png" alt="Official UK Dealer" class="w-10 h-10 md:w-14 md:h-14 object-contain mb-3">
-          <h3 class="text-xl md:text-3xl font-extrabold text-blue-light font-display mb-1 leading-tight">Official
-            UK<br class="hidden md:block"> Dealer</h3>
-          <p class="text-xs md:text-sm font-semibold text-blue-light leading-relaxed">Authorised retailer for leading
-            brands.</p>
+        <div class="card-gradient-wrapper-1">
+          <div class="card-gradient-inner">
+            <img src="assets/t1.png" alt="Official UK Dealer" class="w-10 h-10 md:w-14 md:h-14 object-contain mb-3">
+            <h3 class="text-xl md:text-3xl font-extrabold text-blue-light font-display mb-1 leading-tight">Official
+              UK<br class="hidden md:block"> Dealer</h3>
+            <p class="text-xs md:text-sm font-semibold text-blue-light leading-relaxed">Authorised retailer for leading
+              brands.</p>
+          </div>
         </div>
 
         <!-- Card 2 -->
-        <div
-          style="border-top: 1px solid rgba(0, 84, 166, 0.4); border-right: 5px solid rgba(0, 84, 166, 0.8); border-bottom: 5px solid rgba(0, 84, 166, 0.8); border-left: 1px solid rgba(0, 84, 166, 0.4);"
-          class="rounded-[32px] p-4 flex flex-col items-start text-left bg-white hover:shadow-[0_15px_30px_rgba(11,34,64,0.06)] hover:-translate-y-1 transition-all duration-300">
-          <img src="assets/t2.png" alt="Expert Advice" class="w-10 h-10 md:w-14 md:h-14 object-contain mb-3">
-          <h3 class="text-xl md:text-3xl font-extrabold text-blue-light font-display mb-1 leading-tight">Expert<br
-              class="hidden md:block"> Advice</h3>
-          <p class="text-xs md:text-sm font-semibold text-blue-light leading-relaxed">Get guidance from seasoned
-            detectorists to
-            help you choose the right kit.</p>
+        <div class="card-gradient-wrapper-2">
+          <div class="card-gradient-inner">
+            <img src="assets/t2.png" alt="Expert Advice" class="w-10 h-10 md:w-14 md:h-14 object-contain mb-3">
+            <h3 class="text-xl md:text-3xl font-extrabold text-blue-light font-display mb-1 leading-tight">Expert<br
+                class="hidden md:block"> Advice</h3>
+            <p class="text-xs md:text-sm font-semibold text-blue-light leading-relaxed">Get guidance from seasoned
+              detectorists to
+              help you choose the right kit.</p>
+          </div>
         </div>
 
         <!-- Card 3 -->
-        <div
-          style="border-top: 1px solid rgba(0, 84, 166, 0.4); border-right: 5px solid rgba(0, 84, 166, 0.8); border-bottom: 5px solid rgba(0, 84, 166, 0.8); border-left: 1px solid rgba(0, 84, 166, 0.4);"
-          class="rounded-[32px] p-4 flex flex-col items-start text-left bg-white hover:shadow-[0_15px_30px_rgba(11,34,64,0.06)] hover:-translate-y-1 transition-all duration-300">
-          <img src="assets/t3.png" alt="Community Focus" class="w-10 h-10 md:w-14 md:h-14 object-contain mb-3">
-          <h3 class="text-xl md:text-3xl font-extrabold text-blue-light font-display mb-1 leading-tight">Community<br
-              class="hidden md:block"> Focus</h3>
-          <p class="text-xs md:text-sm font-semibold text-blue-light leading-relaxed">Join our thriving metal detecting
-            community
-            for rallies, group digs, and expert support.</p>
+        <div class="card-gradient-wrapper-1">
+          <div class="card-gradient-inner">
+            <img src="assets/t3.png" alt="Community Focus" class="w-10 h-10 md:w-14 md:h-14 object-contain mb-3">
+            <h3 class="text-xl md:text-3xl font-extrabold text-blue-light font-display mb-1 leading-tight">Community<br
+                class="hidden md:block"> Focus</h3>
+            <p class="text-xs md:text-sm font-semibold text-blue-light leading-relaxed">Join our thriving metal
+              detecting
+              community
+              for rallies, group digs, and expert support.</p>
+          </div>
         </div>
 
         <!-- Card 4 -->
-        <div
-          style="border-top: 1px solid rgba(0, 84, 166, 0.4); border-right: 5px solid rgba(0, 84, 166, 0.8); border-bottom: 5px solid rgba(0, 84, 166, 0.8); border-left: 1px solid rgba(0, 84, 166, 0.4);"
-          class="rounded-[32px] p-4 flex flex-col items-start text-left bg-white hover:shadow-[0_15px_30px_rgba(11,34,64,0.06)] hover:-translate-y-1 transition-all duration-300">
-          <img src="assets/t4.png" alt="Fast UK Delivery" class="w-10 h-10 md:w-14 md:h-14 object-contain mb-3">
-          <h3 class="text-xl md:text-3xl font-extrabold text-blue-light font-display mb-1 leading-tight">Fast UK<br
-              class="hidden md:block"> Delivery</h3>
-          <p class="text-xs md:text-sm font-semibold text-blue-light leading-relaxed">Quick, reliable and tracckable
-            shipping.</p>
+        <div class="card-gradient-wrapper-2">
+          <div class="card-gradient-inner">
+            <img src="assets/t4.png" alt="Fast UK Delivery" class="w-10 h-10 md:w-14 md:h-14 object-contain mb-3">
+            <h3 class="text-xl md:text-3xl font-extrabold text-blue-light font-display mb-1 leading-tight">Fast UK<br
+                class="hidden md:block"> Delivery</h3>
+            <p class="text-xs md:text-sm font-semibold text-blue-light leading-relaxed">Quick, reliable and tracckable
+              shipping.</p>
+          </div>
         </div>
 
       </div>
@@ -1655,7 +1773,7 @@
 
           <!-- Card 1: Sarah -->
           <div
-            class="flex-none w-[80%] sm:w-[320px] md:w-[calc(50%-10px)] lg:w-[calc(25%-10px)] shrink-0 snap-start bg-white border border-slate-100 rounded-[32px] py-4 px-2 shadow-[0_15px_30px_rgba(11,34,64,0.04)] hover:-translate-y-2 hover:shadow-[0_20px_45px_rgba(11,34,64,0.08)] transition-all duration-300 flex flex-col justify-between items-center text-center">
+            class="flex-none w-full sm:w-[320px] md:w-[calc(50%-10px)] lg:w-[calc(25%-10px)] shrink-0 snap-start bg-white border border-slate-100 rounded-[32px] py-4 px-2 hover:-translate-y-2 hover:shadow-[0_20px_45px_rgba(11,34,64,0.08)] transition-all duration-300 flex flex-col justify-between items-center text-center">
             <div class="flex flex-col items-center w-full">
               <!-- Avatar circle -->
               <div class="w-24 h-24 rounded-full overflow-hidden mb-5 border-4 border-slate-50 shadow-sm bg-slate-100">
@@ -1695,7 +1813,7 @@
 
           <!-- Card 2: Mike -->
           <div
-            class="flex-none w-[80%] sm:w-[320px] md:w-[calc(50%-10px)] lg:w-[calc(25%-10px)] shrink-0 snap-start bg-white border border-slate-100 rounded-[32px] py-4 px-2 shadow-[0_15px_30px_rgba(11,34,64,0.04)] hover:-translate-y-2 hover:shadow-[0_20px_45px_rgba(11,34,64,0.08)] transition-all duration-300 flex flex-col justify-between items-center text-center">
+            class="flex-none w-full sm:w-[320px] md:w-[calc(50%-10px)] lg:w-[calc(25%-10px)] shrink-0 snap-start bg-white border border-slate-100 rounded-[32px] py-4 px-2 hover:-translate-y-2 hover:shadow-[0_20px_45px_rgba(11,34,64,0.08)] transition-all duration-300 flex flex-col justify-between items-center text-center">
             <div class="flex flex-col items-center w-full">
               <!-- Avatar circle -->
               <div class="w-24 h-24 rounded-full overflow-hidden mb-5 border-4 border-slate-50 shadow-sm bg-slate-100">
@@ -1736,7 +1854,7 @@
 
           <!-- Card 3: David -->
           <div
-            class="flex-none w-[80%] sm:w-[320px] md:w-[calc(50%-10px)] lg:w-[calc(25%-10px)] shrink-0 snap-start bg-white border border-slate-100 rounded-[32px] py-4 px-2 shadow-[0_15px_30px_rgba(11,34,64,0.04)] hover:-translate-y-2 hover:shadow-[0_20px_45px_rgba(11,34,64,0.08)] transition-all duration-300 flex flex-col justify-between items-center text-center">
+            class="flex-none w-full sm:w-[320px] md:w-[calc(50%-10px)] lg:w-[calc(25%-10px)] shrink-0 snap-start bg-white border border-slate-100 rounded-[32px] py-4 px-2 hover:-translate-y-2 hover:shadow-[0_20px_45px_rgba(11,34,64,0.08)] transition-all duration-300 flex flex-col justify-between items-center text-center">
             <div class="flex flex-col items-center w-full">
               <!-- Avatar circle -->
               <div class="w-24 h-24 rounded-full overflow-hidden mb-5 border-4 border-slate-50 shadow-sm bg-slate-100">
@@ -1778,7 +1896,172 @@
 
           <!-- Card 4: Chloe -->
           <div
-            class="flex-none w-[80%] sm:w-[320px] md:w-[calc(50%-10px)] lg:w-[calc(25%-10px)] shrink-0 snap-start bg-white border border-slate-100 rounded-[32px] py-4 px-2 shadow-[0_15px_30px_rgba(11,34,64,0.04)] hover:-translate-y-2 hover:shadow-[0_20px_45px_rgba(11,34,64,0.08)] transition-all duration-300 flex flex-col justify-between items-center text-center">
+            class="flex-none w-full sm:w-[320px] md:w-[calc(50%-10px)] lg:w-[calc(25%-10px)] shrink-0 snap-start bg-white border border-slate-100 rounded-[32px] py-4 px-2 hover:-translate-y-2 hover:shadow-[0_20px_45px_rgba(11,34,64,0.08)] transition-all duration-300 flex flex-col justify-between items-center text-center">
+            <div class="flex flex-col items-center w-full">
+              <!-- Avatar circle -->
+              <div class="w-24 h-24 rounded-full overflow-hidden mb-5 border-4 border-slate-50 shadow-sm bg-slate-100">
+                <img src="assets/u4.png" alt="Chloe Smith" class="w-full h-full object-cover">
+              </div>
+              <h3 class="text-lg font-extrabold text-[#0b2240] tracking-tight mb-2 uppercase">THRILLED WITH RESULTS.
+              </h3>
+              <p class="text-sm font-semibold text-[#334155] leading-relaxed italic mb-4">
+                "Excellent machine! User-friendly and finds small targets others miss."
+              </p>
+            </div>
+            <div class="flex flex-col items-center w-full mt-auto">
+              <!-- Lime stars -->
+              <div class="flex items-center gap-0.5 justify-center mb-3">
+                <svg class="w-5 h-5 text-[#73cf11] fill-current" viewBox="0 0 24 24">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
+                <svg class="w-5 h-5 text-[#73cf11] fill-current" viewBox="0 0 24 24">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
+                <svg class="w-5 h-5 text-[#73cf11] fill-current" viewBox="0 0 24 24">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
+                <svg class="w-5 h-5 text-[#73cf11] fill-current" viewBox="0 0 24 24">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
+                <svg class="w-5 h-5 text-[#73cf11] fill-current" viewBox="0 0 24 24">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
+              </div>
+              <span class="text-base font-extrabold text-[#0b2240] block mb-1">Chloe Smith, 29</span>
+              <!-- Verified check badge -->
+              <div class="flex items-center gap-1 text-xs font-bold text-gray-500 justify-center">
+                <img src="assets/greentick.png" class="w-4 h-4"><span>Verified Detectorist</span>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- Card 1: Sarah -->
+          <div
+            class="flex-none w-full sm:w-[320px] md:w-[calc(50%-10px)] lg:w-[calc(25%-10px)] shrink-0 snap-start bg-white border border-slate-100 rounded-[32px] py-4 px-2 hover:-translate-y-2 hover:shadow-[0_20px_45px_rgba(11,34,64,0.08)] transition-all duration-300 flex flex-col justify-between items-center text-center">
+            <div class="flex flex-col items-center w-full">
+              <!-- Avatar circle -->
+              <div class="w-24 h-24 rounded-full overflow-hidden mb-5 border-4 border-slate-50 shadow-sm bg-slate-100">
+                <img src="assets/u4.png" alt="Sarah Jenkins" class="w-full h-full object-cover">
+              </div>
+              <h3 class="text-lg font-extrabold text-[#0b2240] tracking-tight mb-2 uppercase">UNBELIEVABLE FINDS!</h3>
+              <p class="text-sm font-semibold text-[#334155] leading-relaxed italic mb-4">
+                "Absolutely love my new Minelab! The depth and clarity are amazing. Highly recommend!"
+              </p>
+            </div>
+            <div class="flex flex-col items-center w-full">
+              <!-- Lime stars -->
+              <div class="flex items-center gap-0.5 justify-center mb-3">
+                <svg class="w-5 h-5 text-[#73cf11] fill-current" viewBox="0 0 24 24">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
+                <svg class="w-5 h-5 text-[#73cf11] fill-current" viewBox="0 0 24 24">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
+                <svg class="w-5 h-5 text-[#73cf11] fill-current" viewBox="0 0 24 24">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
+                <svg class="w-5 h-5 text-[#73cf11] fill-current" viewBox="0 0 24 24">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
+                <svg class="w-5 h-5 text-[#73cf11] fill-current" viewBox="0 0 24 24">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
+              </div>
+              <span class="text-base font-extrabold text-[#0b2240] block mb-1">Sarah Jenkins, 35</span>
+              <!-- Verified check badge -->
+              <div class="flex items-center gap-1 text-xs font-bold text-gray-500 justify-center">
+                <img src="assets/greentick.png" class="w-4 h-4"><span>Verified Detectorist</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Mike -->
+          <div
+            class="flex-none w-full sm:w-[320px] md:w-[calc(50%-10px)] lg:w-[calc(25%-10px)] shrink-0 snap-start bg-white border border-slate-100 rounded-[32px] py-4 px-2 hover:-translate-y-2 hover:shadow-[0_20px_45px_rgba(11,34,64,0.08)] transition-all duration-300 flex flex-col justify-between items-center text-center">
+            <div class="flex flex-col items-center w-full">
+              <!-- Avatar circle -->
+              <div class="w-24 h-24 rounded-full overflow-hidden mb-5 border-4 border-slate-50 shadow-sm bg-slate-100">
+                <img src="assets/u4.png" alt="Mike Thompson" class="w-full h-full object-cover">
+              </div>
+              <h3 class="text-lg font-extrabold text-[#0b2240] tracking-tight mb-2 uppercase">BEST PURCHASE YET.</h3>
+              <p class="text-sm font-semibold text-[#334155] leading-relaxed italic mb-4">
+                "Super reliable machine. Changed my detecting game forever. Couldn't ask for better performance!"
+              </p>
+            </div>
+            <div class="flex flex-col items-center w-full mt-auto">
+              <!-- Lime stars -->
+              <div class="flex items-center gap-0.5 justify-center mb-3">
+                <svg class="w-5 h-5 text-[#73cf11] fill-current" viewBox="0 0 24 24">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
+                <svg class="w-5 h-5 text-[#73cf11] fill-current" viewBox="0 0 24 24">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
+                <svg class="w-5 h-5 text-[#73cf11] fill-current" viewBox="0 0 24 24">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
+                <svg class="w-5 h-5 text-[#73cf11] fill-current" viewBox="0 0 24 24">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
+                <svg class="w-5 h-5 text-[#73cf11] fill-current" viewBox="0 0 24 24">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
+              </div>
+              <span class="text-base font-extrabold text-[#0b2240] block mb-1">Mike Thompson, 46</span>
+              <!-- Verified check badge -->
+              <div class="flex items-center gap-1 text-xs font-bold text-gray-500 justify-center">
+                <img src="assets/greentick.png" class="w-4 h-4">
+                <span>Verified Detectorist</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: David -->
+          <div
+            class="flex-none w-full sm:w-[320px] md:w-[calc(50%-10px)] lg:w-[calc(25%-10px)] shrink-0 snap-start bg-white border border-slate-100 rounded-[32px] py-4 px-2 hover:-translate-y-2 hover:shadow-[0_20px_45px_rgba(11,34,64,0.08)] transition-all duration-300 flex flex-col justify-between items-center text-center">
+            <div class="flex flex-col items-center w-full">
+              <!-- Avatar circle -->
+              <div class="w-24 h-24 rounded-full overflow-hidden mb-5 border-4 border-slate-50 shadow-sm bg-slate-100">
+                <img src="assets/u4.png" alt="David Roberts" class="w-full h-full object-cover">
+              </div>
+              <h3 class="text-lg font-extrabold text-[#0b2240] tracking-tight mb-2 uppercase text-center">EASY TO USE,
+                POWERFUL!</h3>
+              <p class="text-sm font-semibold text-[#334155] leading-relaxed italic mb-4">
+                "The pinpointing is incredibly accurate. Found a rare silver coin on day one! Solid build."
+              </p>
+            </div>
+            <div class="flex flex-col items-center w-full mt-auto">
+              <!-- Lime stars -->
+              <div class="flex items-center gap-0.5 justify-center mb-3">
+                <svg class="w-5 h-5 text-[#73cf11] fill-current" viewBox="0 0 24 24">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
+                <svg class="w-5 h-5 text-[#73cf11] fill-current" viewBox="0 0 24 24">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
+                <svg class="w-5 h-5 text-[#73cf11] fill-current" viewBox="0 0 24 24">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
+                <svg class="w-5 h-5 text-[#73cf11] fill-current" viewBox="0 0 24 24">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
+                <svg class="w-5 h-5 text-[#73cf11] fill-current" viewBox="0 0 24 24">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
+              </div>
+              <span class="text-base font-extrabold text-[#0b2240] block mb-1">David Roberts, 55</span>
+              <!-- Verified check badge -->
+              <div class="flex items-center gap-1 text-xs font-bold text-gray-500 justify-center">
+                <img src="assets/greentick.png" class="w-4 h-4">
+                <span>Verified Detectorist</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4: Chloe -->
+          <div
+            class="flex-none w-full sm:w-[320px] md:w-[calc(50%-10px)] lg:w-[calc(25%-10px)] shrink-0 snap-start bg-white border border-slate-100 rounded-[32px] py-4 px-2 hover:-translate-y-2 hover:shadow-[0_20px_45px_rgba(11,34,64,0.08)] transition-all duration-300 flex flex-col justify-between items-center text-center">
             <div class="flex flex-col items-center w-full">
               <!-- Avatar circle -->
               <div class="w-24 h-24 rounded-full overflow-hidden mb-5 border-4 border-slate-50 shadow-sm bg-slate-100">
@@ -1839,7 +2122,7 @@
 
         <!-- Card 1: Northern Showroom -->
         <div
-          class="relative bg-white border border-slate-100 rounded-[32px] p-8 pb-14 shadow-[0_15px_30px_rgba(11,34,64,0.04)] hover:shadow-[0_20px_45px_rgba(11,34,64,0.08)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+          class="relative bg-white border border-slate-100 rounded-[32px] p-8 pb-14 hover:shadow-[0_20px_45px_rgba(11,34,64,0.08)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
           <div>
             <h3 class="text-2xl md:text-3xl font-extrabold text-blue-light font-display mb-6 leading-tight">
               Northern Showroom<br>(Scunthorpe)
@@ -1902,7 +2185,7 @@
 
         <!-- Card 2: Southern Showroom -->
         <div
-          class="relative bg-white border border-slate-100 rounded-[32px] p-8 pb-14 shadow-[0_15px_30px_rgba(11,34,64,0.04)] hover:shadow-[0_20px_45px_rgba(11,34,64,0.08)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+          class="relative bg-white border border-slate-100 rounded-[32px] p-8 pb-14 hover:shadow-[0_20px_45px_rgba(11,34,64,0.08)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
           <div>
             <h3 class="text-2xl md:text-3xl font-extrabold text-blue-light font-display mb-6 leading-tight">
               Southern Showroom<br>(Ferndown)
@@ -1966,15 +2249,15 @@
               </div>
 
               <!-- what3words -->
-              <div class="flex items-center gap-2 pt-2 text-sm font-semibold text-[#e11d48]">
+              <!-- <div class="flex items-center gap-2 pt-2 text-sm font-semibold text-[#e11d48]">
                 <div
                   class="w-5 h-5 bg-[#e11d48] rounded flex items-center justify-center text-white text-[10px] font-black tracking-tighter shrink-0 select-none">
                   ///
                 </div>
-                <a href="https://what3words.com/musical.laying.shortland" target="_blank" class="hover:underline">
+                 <a href="https://what3words.com/musical.laying.shortland" target="_blank" class="hover:underline">
                   musical.laying.shortland
-                </a>
-              </div>
+                </a> 
+            </div> -->
             </div>
           </div>
 
@@ -1997,7 +2280,7 @@
   <footer class="bg-blue-light text-white pt-28 md:pt-36 pb-0 -mt-16 relative z-0 font-body">
     <div class="container-custom">
       <!-- Top Grid: 4 Columns (Responsive layout matching design columns) -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 mb-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12 md:mb-6">
 
         <!-- Col 1: About & Socials (Wider column) -->
         <div class="flex flex-col md:col-span-2 lg:col-span-5 justify-end">
@@ -2044,9 +2327,14 @@
         </div>
 
         <!-- Col 2: SHOP -->
-        <div class="lg:col-span-2">
-          <h4 class="text-white font-extrabold text-xs uppercase tracking-wider mb-6">SHOP</h4>
-          <ul class="space-y-3.5">
+        <div class="footer-col lg:col-span-2 border-b border-white/10 md:border-b-0 pb-2 md:pb-0">
+          <button
+            class="footer-toggle flex items-center justify-between w-full md:cursor-default focus:outline-none mb-2 md:mb-6"
+            aria-expanded="false">
+            <h4 class="text-white font-extrabold text-xs uppercase tracking-wider">SHOP</h4>
+            <i data-lucide="chevron-down" class="w-4 h-4 text-white/60 md:hidden transition-transform duration-300"></i>
+          </button>
+          <ul class="footer-menu space-y-3.5 hidden md:block">
             <li><a href="#"
                 class="text-[#e2edf8]/70 hover:text-white transition-colors duration-200 text-sm font-medium">All
                 Detectors</a></li>
@@ -2069,9 +2357,14 @@
         </div>
 
         <!-- Col 3: LEARN -->
-        <div class="lg:col-span-3">
-          <h4 class="text-white font-extrabold text-xs uppercase tracking-wider mb-6">LEARN</h4>
-          <ul class="space-y-3.5">
+        <div class="footer-col lg:col-span-3 border-b border-white/10 md:border-b-0 pb-42 md:pb-0">
+          <button
+            class="footer-toggle flex items-center justify-between w-full md:cursor-default focus:outline-none mb-2 md:mb-6"
+            aria-expanded="false">
+            <h4 class="text-white font-extrabold text-xs uppercase tracking-wider">LEARN</h4>
+            <i data-lucide="chevron-down" class="w-4 h-4 text-white/60 md:hidden transition-transform duration-300"></i>
+          </button>
+          <ul class="footer-menu space-y-3.5 hidden md:block">
             <li><a href="#"
                 class="text-[#e2edf8]/70 hover:text-white transition-colors duration-200 text-sm font-medium">Beginner's
                 Guide</a></li>
@@ -2094,9 +2387,14 @@
         </div>
 
         <!-- Col 4: INFO -->
-        <div class="lg:col-span-2">
-          <h4 class="text-white font-extrabold text-xs uppercase tracking-wider mb-6">INFO</h4>
-          <ul class="space-y-3.5">
+        <div class="footer-col lg:col-span-2 pb-2 md:pb-0">
+          <button
+            class="footer-toggle flex items-center justify-between w-full md:cursor-default focus:outline-none mb-2 md:mb-6"
+            aria-expanded="false">
+            <h4 class="text-white font-extrabold text-xs uppercase tracking-wider">INFO</h4>
+            <i data-lucide="chevron-down" class="w-4 h-4 text-white/60 md:hidden transition-transform duration-300"></i>
+          </button>
+          <ul class="footer-menu space-y-3.5 hidden md:block">
             <li><a href="#"
                 class="text-[#e2edf8]/70 hover:text-white transition-colors duration-200 text-sm font-medium">Complaints</a>
             </li>
@@ -2114,7 +2412,7 @@
       </div>
 
       <!-- Horizontal Divider -->
-      <div class="border-t border-white/10 my-12"></div>
+      <div class="border-t border-white/10 mb-6 md:my-12"></div>
 
       <!-- Bottom Layout: Finance Block | Logo -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
