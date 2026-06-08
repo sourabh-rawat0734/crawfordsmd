@@ -1,0 +1,1866 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light">
+  <title>Crawfords Metal Detectors | The UK's Home of Metal Detecting</title>
+  <meta name="description"
+    content="Community-first, education-led, and passionate about metal detecting since 1994. Shop Minelab detectors, accessories, and get expert advice.">
+
+  <!-- External stylesheet (custom component classes) -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Tailwind CSS Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'primary-navy': '#0b2240',
+            'primary-navy-light': '#16365c',
+            'blue-light': '#253e75',
+            'accent-gold': '#eab308',
+            'accent-gold-hover': '#ca8a04',
+            'accent-orange': '#f97316',
+            'accent-orange-hover': '#ea580c',
+            'text-dark': '#0f172a',
+            'text-charcoal': '#334155',
+            'text-muted': '#64748b',
+            'text-light': '#f8fafc',
+            'bg-slate-light': '#f8fafc',
+            'bg-slate-bg': '#f1f5f9',
+            'border-color': '#e2e8f0',
+            'border-color-dark': '#cbd5e1',
+          },
+          fontFamily: {
+            display: ['Gotham', 'Montserrat', 'sans-serif'],
+            body: ['Gotham', 'Inter', 'sans-serif'],
+          },
+          boxShadow: {
+            'premium': '0 20px 25px -5px rgba(11, 34, 64, 0.1), 0 10px 10px -5px rgba(11, 34, 64, 0.04)',
+          },
+          scale: {
+            '108': '1.08',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .container-custom {
+        @apply max-w-5xl mx-auto px-4 md:px-0;
+      }
+      .container-full{
+        @apply max-w-full
+      }
+      #mobile-search-overlay.active {
+        @apply translate-y-0 opacity-100 pointer-events-auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 1. TOP UTILITY BAR -->
+  <div class="bg-blue-light text-text-light text-xs py-2.5 border-b border-white/10 font-body overflow-hidden">
+    <div class="container-full px-2 md:px-10 md:flex md:flex-wrap md:justify-between md:items-center">
+      <div
+        class="flex items-center gap-5 flex-nowrap md:flex-wrap w-max md:w-full text-[10px] md:text-sm animate-ticker md:animate-none">
+        <a href="tel:01724845608"
+          class="flex items-center gap-1 md:gap-2 text-white/85 hover:text-accent-gold transition-colors duration-200 shrink-0"
+          id="phone-scunthorpe">
+          <i data-lucide="phone" class="w-2 h-2.5 md:w-3.5 md:h-3.5"></i>
+          <span>Scunthorpe: 01724 845608</span>
+        </a>
+        <a href="tel:01202091648"
+          class="flex items-center gap-1 md:gap-2 text-white/85 hover:text-accent-gold transition-colors duration-200 shrink-0"
+          id="phone-ferndown">
+          <i data-lucide="phone" class="w-2 h-2.5 md:w-3.5 md:h-3.5"></i>
+          <span>Ferndown: 01202 091648</span>
+        </a>
+        <span class="flex items-center gap-1 md:gap-2 shrink-0">
+          <img src="assets/icon-3.png" alt="Authorised Dealer" class="w-2 h-2.5 md:w-4 md:h-4 object-contain">
+          <span>Official Minelab Authorised Dealer</span>
+        </span>
+        <span class="flex items-center gap-1 md:gap-2 shrink-0">
+          <img src="assets/icon-4.png" alt="Free UK Delivery" class="w-2 h-2.5 md:w-4 md:h-4 object-contain">
+          <span>Free UK Delivery On Orders Over £99</span>
+        </span>
+
+        <!-- Duplicated items for seamless infinite scroll on mobile -->
+        <a href="tel:01724845608"
+          class="flex md:hidden items-center gap-1 text-white/85 hover:text-accent-gold transition-colors duration-200 shrink-0">
+          <i data-lucide="phone" class="w-2 h-2.5"></i>
+          <span>Scunthorpe: 01724 845608</span>
+        </a>
+        <a href="tel:01202091648"
+          class="flex md:hidden items-center gap-1 text-white/85 hover:text-accent-gold transition-colors duration-200 shrink-0">
+          <i data-lucide="phone" class="w-2 h-2.5"></i>
+          <span>Ferndown: 01202 091648</span>
+        </a>
+        <span class="flex md:hidden items-center gap-1 shrink-0">
+          <img src="assets/icon-3.png" alt="Authorised Dealer" class="w-2 h-2.5 object-contain">
+          <span>Official Minelab Authorised Dealer</span>
+        </span>
+        <span class="flex md:hidden items-center gap-1 shrink-0">
+          <img src="assets/icon-4.png" alt="Free UK Delivery" class="w-2 h-2.5 object-contain">
+          <span>Free UK Delivery On Orders Over £99</span>
+        </span>
+      </div>
+    </div>
+  </div>
+  <!-- 2. MAIN HEADER -->
+  <header class="relative bg-white sticky top-0 z-40 font-body">
+
+    <!-- Mobile Search Overlay -->
+    <div id="mobile-search-overlay"
+      class="absolute inset-x-0 top-0 h-full bg-white z-50 px-4 flex items-center justify-between gap-3 transition-all duration-300 transform -translate-y-full opacity-0 pointer-events-none">
+      <div class="relative flex-1 flex items-center">
+        <i data-lucide="search" class="absolute left-4 text-text-muted w-5 h-5"></i>
+        <input type="text" placeholder="Search detectors..." id="mobile-search-input"
+          class="w-full py-2 pl-11 pr-4 rounded-full border-2 border-text-charcoal text-sm text-text-charcoal bg-bg-slate-light placeholder:text-text-muted focus:outline-none focus:border-primary-navy focus:bg-white focus:ring-2 focus:ring-primary-navy/10 transition-all duration-300">
+      </div>
+      <button id="mobile-search-close" class="text-text-charcoal hover:text-blue-light p-1 focus:outline-none shrink-0"
+        aria-label="Close search">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
+    </div>
+
+    <div class="container-full py-5 pl-3 pr-4 md:px-10 flex flex-col gap-0">
+
+      <!-- ROW 1: Hamburger (mobile) + Search / Account / Cart (right) -->
+      <div class="flex items-center justify-between md:justify-end gap-1">
+
+        <div class="flex items-start gap-2">
+          <!-- Mobile Hamburger — hidden on lg -->
+          <button class="lg:hidden text-primary-navy focus:outline-none shrink-0" id="menu-toggle"
+            aria-label="Toggle Menu">
+            <i data-lucide="menu" class="w-7 h-7"></i>
+          </button>
+
+          <!-- Logo -->
+          <a href="#" class="flex items-center shrink-0 md:hidden">
+            <img src="assets/Logo.png" alt="Crawfords Logo" class="h-8 w-auto block">
+          </a>
+        </div>
+
+        <!-- Search + Account + Cart -->
+        <div class="flex items-center gap-4">
+
+          <!-- Search bar — desktop/tablet only -->
+          <div class="hidden md:flex relative items-center group/search">
+            <input type="text" placeholder="Search detectors..." id="search-input"
+              class="w-44 md:w-56 lg:w-64 py-1.5 pl-4 pr-9 rounded-full border-2 border-text-charcoal text-sm text-text-charcoal bg-bg-slate-light placeholder:text-text-muted focus:outline-none focus:border-primary-navy focus:bg-white focus:ring-2 focus:ring-primary-navy/10 hover:border-primary-navy/60 hover:shadow-sm focus:w-48 md:focus:w-60 lg:focus:w-72 focus:shadow-md transition-all duration-300">
+            <button class="group absolute right-3 text-text-muted hover:text-primary-navy focus:outline-none"
+              aria-label="Search">
+              <i data-lucide="search" class="w-4 h-4"></i>
+            </button>
+          </div>
+
+          <!-- Search toggle — mobile only -->
+          <button id="mobile-search-toggle"
+            class="group md:hidden flex flex-col items-center gap-0.5 text-text-charcoal hover:text-primary-navy transition-colors duration-200 focus:outline-none"
+            aria-label="Search">
+            <i data-lucide="search" class="w-5 h-5"></i>
+            <span class="text-[10px] font-semibold leading-none tracking-wide hidden md:block">Search</span>
+          </button>
+
+          <!-- Account: icon + label -->
+          <button
+            class="group flex flex-col items-center gap-0.5 text-text-charcoal hover:text-primary-navy transition-colors duration-200 focus:outline-none"
+            aria-label="Account">
+            <i data-lucide="user" class="w-5 h-5"></i>
+            <span class="text-[10px] font-semibold leading-none tracking-wide hidden md:block">Account</span>
+          </button>
+
+          <!-- Cart: icon + label + badge -->
+          <button
+            class="group relative flex flex-col items-center gap-0.5 text-text-charcoal hover:text-primary-navy transition-colors duration-200 focus:outline-none"
+            aria-label="Shopping Cart" id="cart-btn">
+            <i data-lucide="shopping-cart" class="w-5 h-5"></i>
+            <span class="text-[10px] font-semibold leading-none tracking-wide hidden md:block">Cart</span>
+            <span
+              class="absolute -top-1 -right-2 bg-accent-orange text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center border border-white"
+              id="cart-count">2</span>
+          </button>
+
+        </div>
+      </div>
+
+      <!-- ROW 2: Logo (left) + Nav links (right) -->
+      <nav class="flex items-center justify-between md:pt-4">
+
+        <!-- Logo -->
+        <a href="#" class="flex items-center shrink-0 hidden md:block">
+          <img src="assets/Logo.png" alt="Crawfords Logo" class="h-11 w-auto block">
+        </a>
+
+        <!-- Nav drawer / inline links -->
+        <ul class="nav-menu-drawer" id="nav-menu">
+          <!-- Mobile drawer header with logo and close button -->
+          <li class="lg:hidden flex items-center justify-between w-full mb-2 pb-4 border-b border-white/10">
+            <img src="assets/logo-white.png" alt="Crawfords Logo" class="h-8 w-auto">
+            <button class="text-white hover:text-accent-gold p-1" id="drawer-close" aria-label="Close menu">
+              <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+          </li>
+          <li><a href="#"
+              class="flex items-center text-white lg:text-text-charcoal hover:text-primary-navy font-semibold text-[15px] py-2 lg:py-0 transition-colors duration-200 border-b-2 border-primary-navy">Home</a>
+          </li>
+          <li><a href="#detectors"
+              class="flex items-center text-white lg:text-text-charcoal hover:text-primary-navy font-semibold text-[15px] py-2 lg:py-0 transition-colors duration-200 border-b-2 border-transparent hover:border-primary-navy">Metal
+              Detectors</a></li>
+          <li><a href="#brands"
+              class="flex items-center text-white lg:text-text-charcoal hover:text-primary-navy font-semibold text-[15px] py-2 lg:py-0 transition-colors duration-200 border-b-2 border-transparent hover:border-primary-navy">Brands</a>
+          </li>
+          <li><a href="#categories"
+              class="flex items-center text-white lg:text-text-charcoal hover:text-primary-navy font-semibold text-[15px] py-2 lg:py-0 transition-colors duration-200 border-b-2 border-transparent hover:border-primary-navy">Accessories</a>
+          </li>
+          <li><a href="#offers"
+              class="flex items-center text-white lg:text-text-charcoal hover:text-primary-navy font-semibold text-[15px] py-2 lg:py-0 transition-colors duration-200 border-b-2 border-transparent hover:border-primary-navy">Offers</a>
+          </li>
+          <li><a href="#finance"
+              class="flex items-center text-white lg:text-text-charcoal hover:text-primary-navy font-semibold text-[15px] py-2 lg:py-0 transition-colors duration-200 border-b-2 border-transparent hover:border-primary-navy">Finance</a>
+          </li>
+          <li><a href="#journey"
+              class="flex items-center text-white lg:text-text-charcoal hover:text-primary-navy font-semibold text-[15px] py-2 lg:py-0 transition-colors duration-200 border-b-2 border-transparent hover:border-primary-navy">Beginner's
+              Guide</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- 3. HERO SECTION -->
+  <section class="relative overflow-hidden font-body mx-4 md:mx-10">
+    <img src="assets/brands-banner.jpg" alt="" class="w-full d-block">
+  </section>
+
+  <!-- 4. PROMO TICKER BAR -->
+  <div
+    class="bg-[#f5f7fb] px-4 text-blue-light py-2 md:py-3 font-bold text-sm md:text-lg text-left md:text-center mx-4 md:mx-10 ">
+    <div class="flex items-center justify-around flex-col md:flex-row gap-1 container-custom">
+      <span>Official UK Dealer - 33+ Years of Expertise</span>
+      <span class="w-1 h-1 md:w-2 md:h-2 bg-blue-light rounded-full"></span>
+      <span>Flexible Finance Available</span>
+      <span class="w-1 h-1 md:w-2 md:h-2 bg-blue-light rounded-full"></span>
+      <span>Fast & Reliable Delivery</span>
+    </div>
+  </div>
+
+
+  <!-- 6. TOP PICKS SECTION -->
+  <section class="py-10 md:py-20 font-body flex flex-col gap-10" id="detectors">
+    <div class="container-custom">
+      <h2 class="text-2xl md:text-5xl font-bold mb-5 text-blue-light text-center">
+        Bestselling Minelab Detectors
+      </h2>
+
+      <p class="text-text-muted text-base font-medium text-center">Trusted by UK detectorists — proven performance
+        across all
+        terrains
+      </p>
+    </div>
+
+    <div class="px-4 md:px-10">
+      <!-- Carousel Container with Navigation Buttons -->
+      <div class="flex gap-4 scroll-smooth py-2">
+        <!-- Product 1: Equinox 900 -->
+        <div
+          class="product-card overflow-hidden bg-white border border-border-color rounded-2xl p-3 relative flex flex-col h-full hover:-translate-y-2 hover:shadow-premium hover:border-border-color-dark transition-all duration-300 group w-full sm:w-[calc(50%-8px)] lg:w-[calc(20%-12px)] shrink-0 snap-start"
+          data-cat="allround">
+          <span
+            class="absolute top-4 left-4 bg-accent-orange text-white text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Best
+            Seller</span>
+          <div class="bg-bg-slate-light rounded-xl h-56 flex items-center justify-center mb-5 overflow-hidden relative">
+            <img src="assets/product-image.png" alt="Minelab Equinox 900"
+              class="max-h-full object-contain group-hover:scale-108 transition-transform duration-300">
+          </div>
+
+          <h3 class="text-xl font-bold mb-1 text-blue-light font-display">Equinox 900</h3>
+          <p class="text-xs font-bold text-dark line-clamp-2 mb-2 flex-grow">Multi-IQ+ simultaneous multi-frequency.
+            Wireless audio.
+            Waterproof to 5m.</p>
+          <div class="flex items-center gap-1 mb-3">
+            <i data-lucide="star" class="w-3.5 h-3.5 fill-accent-gold text-accent-gold"></i>
+            <i data-lucide="star" class="w-3.5 h-3.5 fill-accent-gold text-accent-gold"></i>
+            <i data-lucide="star" class="w-3.5 h-3.5 fill-accent-gold text-accent-gold"></i>
+            <i data-lucide="star" class="w-3.5 h-3.5 fill-accent-gold text-accent-gold"></i>
+            <i data-lucide="star" class="w-3.5 h-3.5 fill-accent-gold text-accent-gold"></i>
+            <span class="text-xs text-text-muted ml-1">(48)</span>
+          </div>
+          <div class="flex items-baseline gap-2 mb-5">
+            <span class="text-xl font-extrabold text-primary-navy font-display">£1,049.00</span>
+            <span class="text-sm line-through text-text-muted">£1,200.00</span>
+          </div>
+          <button
+            class="w-full bg-blue-light text-white py-3 rounded-lg font-semibold text-sm flex items-center justify-center gap-2 mb-3 hover:bg-primary-navy-light active:scale-95 transition-all duration-200 add-to-cart-btn"
+            data-id="eq900" data-name="Equinox 900" data-price="1049">
+            <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+            <span>ADD TO CART</span>
+          </button>
+          <div class="flex justify-around text-xs font-semibold text-text-charcoal border-t border-slate-100 pt-3">
+            <button
+              class="flex items-center gap-1 hover:text-primary-navy transition-colors duration-200 quick-view-btn"
+              data-id="eq900">
+              <i data-lucide="eye" class="w-3.5 h-3.5"></i>
+              <span>QUICK VIEW</span>
+            </button>
+            <button class="flex items-center gap-1 hover:text-primary-navy transition-colors duration-200 compare-btn">
+              <i data-lucide="git-compare" class="w-3.5 h-3.5"></i>
+              <span>COMPARE</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Product 2: Manticore -->
+        <div
+          class="product-card bg-white border border-border-color rounded-2xl p-3 relative flex flex-col h-full hover:-translate-y-2 hover:shadow-premium hover:border-border-color-dark transition-all duration-300 group w-full sm:w-[calc(50%-8px)] lg:w-[calc(20%-12px)] shrink-0 snap-start"
+          data-cat="professional">
+          <span
+            class="absolute top-4 left-4 bg-primary-navy text-white text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Pro
+            Grade</span>
+          <div class="bg-bg-slate-light rounded-xl h-56 flex items-center justify-center mb-5 overflow-hidden relative">
+            <img src="assets/product-image.png" alt="Minelab Equinox 900"
+              class="max-h-full object-contain group-hover:scale-108 transition-transform duration-300">
+          </div>
+
+          <h3 class="text-xl font-bold mb-1 text-blue-light font-display">Manticore</h3>
+          <p class="text-xs font-bold text-dark line-clamp-2 mb-2 flex-grow">High-performance coin & treasure detector
+            with advanced
+            2D Target ID.</p>
+          <div class="flex items-center gap-1 mb-3">
+            <i data-lucide="star" class="w-3.5 h-3.5 fill-accent-gold text-accent-gold"></i>
+            <i data-lucide="star" class="w-3.5 h-3.5 fill-accent-gold text-accent-gold"></i>
+            <i data-lucide="star" class="w-3.5 h-3.5 fill-accent-gold text-accent-gold"></i>
+            <i data-lucide="star" class="w-3.5 h-3.5 fill-accent-gold text-accent-gold"></i>
+            <i data-lucide="star" class="w-3.5 h-3.5 fill-accent-gold text-accent-gold"></i>
+            <span class="text-xs text-text-muted ml-1">(32)</span>
+          </div>
+          <div class="flex items-baseline gap-2 mb-5">
+            <span class="text-xl font-extrabold text-primary-navy font-display">£1,749.00</span>
+          </div>
+          <button
+            class="w-full bg-blue-light text-white py-3 rounded-lg font-semibold text-sm flex items-center justify-center gap-2 mb-3 hover:bg-primary-navy-light active:scale-95 transition-all duration-200 add-to-cart-btn"
+            data-id="manticore" data-name="Manticore" data-price="1749">
+            <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+            <span>ADD TO CART</span>
+          </button>
+          <div class="flex justify-around text-xs font-semibold text-text-charcoal border-t border-slate-100 pt-3">
+            <button
+              class="flex items-center gap-1 hover:text-primary-navy transition-colors duration-200 quick-view-btn"
+              data-id="manticore">
+              <i data-lucide="eye" class="w-3.5 h-3.5"></i>
+              <span>QUICK VIEW</span>
+            </button>
+            <button class="flex items-center gap-1 hover:text-primary-navy transition-colors duration-200 compare-btn">
+              <i data-lucide="git-compare" class="w-3.5 h-3.5"></i>
+              <span>COMPARE</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Product 3: X-Terra Pro -->
+        <div
+          class="product-card bg-white border border-border-color rounded-2xl p-3 relative flex flex-col h-full hover:-translate-y-2 hover:shadow-premium hover:border-border-color-dark transition-all duration-300 group w-full sm:w-[calc(50%-8px)] lg:w-[calc(20%-12px)] shrink-0 snap-start"
+          data-cat="beginner">
+          <span
+            class="absolute top-4 left-4 bg-emerald-500 text-white text-[10px] font-bold px-2 py-1 rounded uppercase z-10">New</span>
+          <div class="bg-bg-slate-light rounded-xl h-56 flex items-center justify-center mb-5 overflow-hidden relative">
+            <img src="assets/product-image.png" alt="Minelab X-Terra Pro"
+              class="max-h-full object-contain group-hover:scale-108 transition-transform duration-300">
+          </div>
+
+          <h3 class="text-xl font-bold mb-1 text-blue-light font-display">X-Terra Pro</h3>
+          <p class="text-xs font-bold text-dark line-clamp-2 mb-2 flex-grow">Simultaneous multi-frequency on a budget.
+            Fully
+            waterproof up to 5m.</p>
+          <div class="flex items-center gap-1 mb-3">
+            <i data-lucide="star" class="w-3.5 h-3.5 fill-accent-gold text-accent-gold"></i>
+            <i data-lucide="star" class="w-3.5 h-3.5 fill-accent-gold text-accent-gold"></i>
+            <i data-lucide="star" class="w-3.5 h-3.5 fill-accent-gold text-accent-gold"></i>
+            <i data-lucide="star" class="w-3.5 h-3.5 fill-accent-gold text-accent-gold"></i>
+            <i data-lucide="star" class="w-3.5 h-3.5 fill-accent-gold text-accent-gold"></i>
+            <span class="text-xs text-text-muted ml-1">(15)</span>
+          </div>
+          <div class="flex items-baseline gap-2 mb-5">
+            <span class="text-xl font-extrabold text-primary-navy font-display">£329.00</span>
+          </div>
+          <button
+            class="w-full bg-blue-light text-white py-3 rounded-lg font-semibold text-sm flex items-center justify-center gap-2 mb-3 hover:bg-primary-navy-light active:scale-95 transition-all duration-200 add-to-cart-btn"
+            data-id="xterra" data-name="X-Terra Pro" data-price="329">
+            <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+            <span>ADD TO CART</span>
+          </button>
+          <div class="flex justify-around text-xs font-semibold text-text-charcoal border-t border-slate-100 pt-3">
+            <button
+              class="flex items-center gap-1 hover:text-primary-navy transition-colors duration-200 quick-view-btn"
+              data-id="xterra">
+              <i data-lucide="eye" class="w-3.5 h-3.5"></i>
+              <span>QUICK VIEW</span>
+            </button>
+            <button class="flex items-center gap-1 hover:text-primary-navy transition-colors duration-200 compare-btn">
+              <i data-lucide="git-compare" class="w-3.5 h-3.5"></i>
+              <span>COMPARE</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Product 4: Vanquish 540 -->
+        <div
+          class="product-card bg-white border border-border-color rounded-2xl p-3 relative flex flex-col h-full hover:-translate-y-2 hover:shadow-premium hover:border-border-color-dark transition-all duration-300 group w-full sm:w-[calc(50%-8px)] lg:w-[calc(20%-12px)] shrink-0 snap-start"
+          data-cat="beginner">
+          <span
+            class="absolute top-4 left-4 bg-accent-orange text-white text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Popular</span>
+          <div class="bg-bg-slate-light rounded-xl h-56 flex items-center justify-center mb-5 overflow-hidden relative">
+            <img src="assets/product-image.png" alt="Minelab Equinox 900"
+              class="max-h-full object-contain group-hover:scale-108 transition-transform duration-300">
+          </div>
+
+          <h3 class="text-xl font-bold mb-1 text-blue-light font-display">Vanquish 540</h3>
+          <p class="text-xs font-bold text-dark line-clamp-2 mb-2 flex-grow">Ideal for beginners. Multi-IQ technology,
+            simple
+            controls, pack-and-go design.</p>
+          <div class="flex items-center gap-1 mb-3">
+            <i data-lucide="star" class="w-3.5 h-3.5 fill-accent-gold text-accent-gold"></i>
+            <i data-lucide="star" class="w-3.5 h-3.5 fill-accent-gold text-accent-gold"></i>
+            <i data-lucide="star" class="w-3.5 h-3.5 fill-accent-gold text-accent-gold"></i>
+            <i data-lucide="star" class="w-3.5 h-3.5 fill-accent-gold text-accent-gold"></i>
+            <i data-lucide="star-half" class="w-3.5 h-3.5 fill-accent-gold text-accent-gold"></i>
+            <span class="text-xs text-text-muted ml-1">(29)</span>
+          </div>
+          <div class="flex items-baseline gap-2 mb-5">
+            <span class="text-xl font-extrabold text-primary-navy font-display">£399.00</span>
+            <span class="text-sm line-through text-text-muted">£450.00</span>
+          </div>
+          <button
+            class="w-full bg-blue-light text-white py-3 rounded-lg font-semibold text-sm flex items-center justify-center gap-2 mb-3 hover:bg-primary-navy-light active:scale-95 transition-all duration-200 add-to-cart-btn"
+            data-id="vanq540" data-name="Vanquish 540" data-price="399">
+            <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+            <span>ADD TO CART</span>
+          </button>
+          <div class="flex justify-around text-xs font-semibold text-text-charcoal border-t border-slate-100 pt-3">
+            <button
+              class="flex items-center gap-1 hover:text-primary-navy transition-colors duration-200 quick-view-btn"
+              data-id="vanq540">
+              <i data-lucide="eye" class="w-3.5 h-3.5"></i>
+              <span>QUICK VIEW</span>
+            </button>
+            <button class="flex items-center gap-1 hover:text-primary-navy transition-colors duration-200 compare-btn">
+              <i data-lucide="git-compare" class="w-3.5 h-3.5"></i>
+              <span>COMPARE</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Product 5: Vanquish 340 -->
+        <div
+          class="product-card bg-white border border-border-color rounded-2xl p-3 relative flex flex-col h-full hover:-translate-y-2 hover:shadow-premium hover:border-border-color-dark transition-all duration-300 group w-full sm:w-[calc(50%-8px)] lg:w-[calc(20%-12px)] shrink-0 snap-start"
+          data-cat="beginner">
+          <span
+            class="absolute top-4 left-4 bg-blue-light text-white text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Entry
+            Level</span>
+          <div class="bg-bg-slate-light rounded-xl h-56 flex items-center justify-center mb-5 overflow-hidden relative">
+            <img src="assets/product-image.png" alt="Minelab Vanquish 340"
+              class="max-h-full object-contain group-hover:scale-108 transition-transform duration-300">
+          </div>
+
+          <h3 class="text-xl font-bold mb-1 text-blue-light font-display">Vanquish 340</h3>
+          <p class="text-xs font-bold text-dark line-clamp-2 mb-2 flex-grow">Easy to use entry-level detector with
+            Multi-IQ. Perfect for young enthusiasts.</p>
+          <div class="flex items-center gap-1 mb-3">
+            <i data-lucide="star" class="w-3.5 h-3.5 fill-accent-gold text-accent-gold"></i>
+            <i data-lucide="star" class="w-3.5 h-3.5 fill-accent-gold text-accent-gold"></i>
+            <i data-lucide="star" class="w-3.5 h-3.5 fill-accent-gold text-accent-gold"></i>
+            <i data-lucide="star" class="w-3.5 h-3.5 fill-accent-gold text-accent-gold"></i>
+            <i data-lucide="star-half" class="w-3.5 h-3.5 fill-accent-gold text-accent-gold"></i>
+            <span class="text-xs text-text-muted ml-1">(18)</span>
+          </div>
+          <div class="flex items-baseline gap-2 mb-5">
+            <span class="text-xl font-extrabold text-primary-navy font-display">£229.00</span>
+          </div>
+          <button
+            class="w-full bg-blue-light text-white py-3 rounded-lg font-semibold text-sm flex items-center justify-center gap-2 mb-3 hover:bg-primary-navy-light active:scale-95 transition-all duration-200 add-to-cart-btn"
+            data-id="vanq340" data-name="Vanquish 340" data-price="229">
+            <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+            <span>ADD TO CART</span>
+          </button>
+          <div class="flex justify-around text-xs font-semibold text-text-charcoal border-t border-slate-100 pt-3">
+            <button
+              class="flex items-center gap-1 hover:text-primary-navy transition-colors duration-200 quick-view-btn"
+              data-id="vanq340">
+              <i data-lucide="eye" class="w-3.5 h-3.5"></i>
+              <span>QUICK VIEW</span>
+            </button>
+            <button class="flex items-center gap-1 hover:text-primary-navy transition-colors duration-200 compare-btn">
+              <i data-lucide="git-compare" class="w-3.5 h-3.5"></i>
+              <span>COMPARE</span>
+            </button>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div class="flex justify-center gap-2 mt-10" id="carousel-indicators">
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- 6b. SHOP MINELAB BY RANGE SECTION -->
+  <section class="py-10 md:py-16 bg-white font-body" id="ranges">
+    <div class="mx-auto px-4 md:px-10">
+      <div class="text-center mb-10">
+        <h2 class="text-2xl md:text-5xl font-extrabold mb-4 font-display text-blue-light">
+          Shop Minelab by Range
+        </h2>
+        <p class="text-text-muted text-base font-medium">
+          Choose your perfect detector from Minelab's award-winning ranges
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+        <!-- Card 1: Manticore -->
+        <div
+          class="flex flex-col h-full bg-[#f5f7fb] border border-slate-200/60 rounded-3xl p-5 hover:-translate-y-2 hover:shadow-premium hover:bg-white hover:border-primary-navy/20 transition-all duration-300 group text-center items-center justify-between">
+          <div class="w-full flex justify-center mb-3">
+            <svg class="h-6 w-auto" viewBox="0 0 160 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="15" cy="15" r="12" stroke="#94a3b8" stroke-width="2" fill="#e2e8f0" />
+              <path d="M9 21L12 9H15L13.5 15L16.5 9H19.5L16.5 21H14L15 14L11.5 21H9Z" fill="#0f172a" />
+              <text x="35" y="21" font-family="system-ui, -apple-system, sans-serif" font-weight="900"
+                font-style="italic" font-size="15" fill="#0f172a" letter-spacing="1.2">MANTICORE</text>
+            </svg>
+          </div>
+          <div class="h-44 w-full flex items-center justify-center mb-4 ">
+            <img src="assets/equinox_product.png" alt="Manticore"
+              class="max-h-full object-contain group-hover:scale-105 transition-transform duration-300">
+          </div>
+          <div class="flex-grow flex flex-col items-center justify-between">
+            <div>
+              <h3 class="text-xl font-bold text-blue-light mb-1 font-display">Manticore</h3>
+              <p class="text-xs text-text-charcoal font-semibold px-2 mb-4 leading-relaxed">Next-level power for serious
+                detectorists</p>
+            </div>
+            <a href="#detectors"
+              class="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 bg-accent-orange text-white font-extrabold text-xs rounded-lg hover:bg-accent-orange-hover active:scale-95 transition-all duration-200 uppercase tracking-wider">
+              <span>Shop Manticore</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 2: Vanquish -->
+        <div
+          class="flex flex-col h-full bg-[#f5f7fb] border border-slate-200/60 rounded-3xl p-5 hover:-translate-y-2 hover:shadow-premium hover:bg-white hover:border-primary-navy/20 transition-all duration-300 group text-center items-center justify-between">
+          <div class="w-full flex justify-center mb-3">
+            <svg class="h-6 w-auto" viewBox="0 0 160 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <text x="5" y="21" font-family="system-ui, -apple-system, sans-serif" font-weight="900"
+                font-style="italic" font-size="18" fill="#dc2626" letter-spacing="0.5">VANQUISH</text>
+            </svg>
+          </div>
+          <div class="h-44 w-full flex items-center justify-center mb-4 ">
+            <img src="assets/product-image.png" alt="Vanquish"
+              class="max-h-full object-contain group-hover:scale-105 transition-transform duration-300">
+          </div>
+          <div class="flex-grow flex flex-col items-center justify-between">
+            <div>
+              <h3 class="text-xl font-bold text-blue-light mb-1 font-display">Vanquish</h3>
+              <p class="text-xs text-text-charcoal font-semibold px-2 mb-4 leading-relaxed">Perfect for beginners and
+                everyday detecting</p>
+            </div>
+            <a href="#detectors"
+              class="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 bg-accent-orange text-white font-extrabold text-xs rounded-lg hover:bg-accent-orange-hover active:scale-95 transition-all duration-200 uppercase tracking-wider">
+              <span>Shop Vanquish</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 3: X-Terra -->
+        <div
+          class="flex flex-col h-full bg-[#f5f7fb] border border-slate-200/60 rounded-3xl p-5 hover:-translate-y-2 hover:shadow-premium hover:bg-white hover:border-primary-navy/20 transition-all duration-300 group text-center items-center justify-between">
+          <div class="w-full flex justify-center mb-3">
+            <svg class="h-6 w-auto" viewBox="0 0 160 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 8L12 22M12 8L4 22" stroke="#16a34a" stroke-width="3.5" stroke-linecap="round" />
+              <path d="M8 8V22M4 15H12" stroke="#1e293b" stroke-width="1.5" />
+              <text x="22" y="21" font-family="system-ui, -apple-system, sans-serif" font-weight="900"
+                font-style="italic" font-size="18" fill="#0f172a" letter-spacing="0.8">X-TERRA</text>
+            </svg>
+          </div>
+          <div class="h-44 w-full flex items-center justify-center mb-4 ">
+            <img src="assets/equinox_product.png" alt="X-Terra"
+              class="max-h-full object-contain group-hover:scale-105 transition-transform duration-300">
+          </div>
+          <div class="flex-grow flex flex-col items-center justify-between">
+            <div>
+              <h3 class="text-xl font-bold text-blue-light mb-1 font-display">X-Terra</h3>
+              <p class="text-xs text-text-charcoal font-semibold px-2 mb-4 leading-relaxed">Lightweight, versatile, and
+                easy to use</p>
+            </div>
+            <a href="#detectors"
+              class="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 bg-accent-orange text-white font-extrabold text-xs rounded-lg hover:bg-accent-orange-hover active:scale-95 transition-all duration-200 uppercase tracking-wider">
+              <span>Shop X-Terra</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 4: Equinox -->
+        <div
+          class="flex flex-col h-full bg-[#f5f7fb] border border-slate-200/60 rounded-3xl p-5 hover:-translate-y-2 hover:shadow-premium hover:bg-white hover:border-primary-navy/20 transition-all duration-300 group text-center items-center justify-between">
+          <div class="w-full flex justify-center mb-3">
+            <svg class="h-6 w-auto" viewBox="0 0 160 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <text x="5" y="21" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="18"
+                fill="#0f172a" letter-spacing="1.5">EQU<tspan fill="#dc2626">|</tspan>NOX</text>
+            </svg>
+          </div>
+          <div class="h-44 w-full flex items-center justify-center mb-4 ">
+            <img src="assets/equinox_product.png" alt="Equinox"
+              class="max-h-full object-contain group-hover:scale-105 transition-transform duration-300">
+          </div>
+          <div class="flex-grow flex flex-col items-center justify-between">
+            <div>
+              <h3 class="text-xl font-bold text-blue-light mb-1 font-display">Equinox</h3>
+              <p class="text-xs text-text-charcoal font-semibold px-2 mb-4 leading-relaxed">All-terrain performance for
+                any condition</p>
+            </div>
+            <a href="#detectors"
+              class="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 bg-accent-orange text-white font-extrabold text-xs rounded-lg hover:bg-accent-orange-hover active:scale-95 transition-all duration-200 uppercase tracking-wider">
+              <span>Shop Equinox</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 5: Go-Find -->
+        <div
+          class="flex flex-col h-full bg-[#f5f7fb] border border-slate-200/60 rounded-3xl p-5 hover:-translate-y-2 hover:shadow-premium hover:bg-white hover:border-primary-navy/20 transition-all duration-300 group text-center items-center justify-between">
+          <div class="w-full flex justify-center mb-3">
+            <svg class="h-6 w-auto" viewBox="0 0 160 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <text x="5" y="21" font-family="system-ui, -apple-system, sans-serif" font-weight="900"
+                font-style="italic" font-size="18" fill="#ea580c" letter-spacing="0.5">GO<tspan fill="#0f172a">*</tspan>
+                FIND</text>
+            </svg>
+          </div>
+          <div class="h-44 w-full flex items-center justify-center mb-4 ">
+            <img src="assets/product-image.png" alt="Go-Find"
+              class="max-h-full object-contain group-hover:scale-105 transition-transform duration-300">
+          </div>
+          <div class="flex-grow flex flex-col items-center justify-between">
+            <div>
+              <h3 class="text-xl font-bold text-blue-light mb-1 font-display">Go-Find</h3>
+              <p class="text-xs text-text-charcoal font-semibold px-2 mb-4 leading-relaxed">Simple, portable detecting
+                for quick adventures</p>
+            </div>
+            <a href="#detectors"
+              class="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 bg-accent-orange text-white font-extrabold text-xs rounded-lg hover:bg-accent-orange-hover active:scale-95 transition-all duration-200 uppercase tracking-wider">
+              <span>Shop Go-Find</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 7. DETECTOR CATALOG SECTION -->
+  <section class="py-12 md:py-20 bg-slate-50/50 font-body border-t border-slate-100" id="catalog">
+    <div class="max-w-7xl mx-auto px-4 md:px-10">
+      <div class="flex flex-col lg:flex-row gap-8">
+
+        <!-- Sidebar Filter (1/4 width on desktop) -->
+        <aside
+          class="w-full lg:w-[280px] bg-white border border-slate-200/80 rounded-3xl p-6 shadow-sm shrink-0 self-start lg:sticky lg:top-24">
+          <!-- Refine Your Search Header -->
+          <div class="flex items-center justify-between pb-4 mb-5 border-b border-slate-100">
+            <h3 class="font-bold text-lg text-primary-navy font-display tracking-wide">Refine Your Search</h3>
+            <button class="text-xs font-bold text-blue-light/70 hover:text-blue-light uppercase tracking-wider"
+              onclick="resetFilters()">Clear All</button>
+          </div>
+
+          <!-- Filter Section: Categories -->
+          <div class="space-y-2 mb-6">
+            <label
+              class="flex items-center justify-between p-2.5 bg-[#eef5fb] rounded-xl cursor-pointer group transition-all duration-200">
+              <span class="flex items-center gap-3">
+                <input type="checkbox" id="filter-all" checked onchange="toggleCategory('all')"
+                  class="w-4 h-4 rounded text-blue-light border-slate-300 focus:ring-blue-light/20 transition-all duration-200">
+                <span class="text-sm font-bold text-primary-navy">All Detectors</span>
+              </span>
+              <span
+                class="text-xs font-semibold text-blue-light/70 bg-white px-2 py-0.5 rounded-full shadow-sm">42</span>
+            </label>
+            <label
+              class="flex items-center justify-between p-2.5 hover:bg-slate-50 rounded-xl cursor-pointer group transition-all duration-200">
+              <span class="flex items-center gap-3">
+                <input type="checkbox" id="filter-detectors" onchange="toggleCategory('detectors')"
+                  class="w-4 h-4 rounded text-blue-light border-slate-300 focus:ring-blue-light/20 transition-all duration-200">
+                <span
+                  class="text-sm font-bold text-text-charcoal group-hover:text-primary-navy transition-colors duration-200">Metal
+                  Detectors</span>
+              </span>
+              <span class="text-xs font-semibold text-text-muted bg-slate-100 px-2 py-0.5 rounded-full">36</span>
+            </label>
+            <label
+              class="flex items-center justify-between p-2.5 hover:bg-slate-50 rounded-xl cursor-pointer group transition-all duration-200">
+              <span class="flex items-center gap-3">
+                <input type="checkbox" id="filter-bundles" onchange="toggleCategory('bundles')"
+                  class="w-4 h-4 rounded text-blue-light border-slate-300 focus:ring-blue-light/20 transition-all duration-200">
+                <span
+                  class="text-sm font-bold text-text-charcoal group-hover:text-primary-navy transition-colors duration-200">Bundles</span>
+              </span>
+              <span class="text-xs font-semibold text-text-muted bg-slate-100 px-2 py-0.5 rounded-full">6</span>
+            </label>
+          </div>
+
+          <!-- Filter Section: Price -->
+          <div class="border-t border-slate-100 pt-4 mb-6">
+            <h4 class="font-bold text-xs text-primary-navy uppercase tracking-wider mb-3">Price</h4>
+            <div class="flex items-center justify-between text-xs font-bold text-text-charcoal mb-4">
+              <span>£179</span>
+              <span>£3,000</span>
+            </div>
+            <div class="relative py-2 px-1">
+              <div class="h-1 bg-slate-200 rounded-full w-full"></div>
+              <div class="absolute top-2 left-[5%] right-[10%] h-1 bg-blue-light rounded-full"></div>
+              <div
+                class="absolute top-0.5 left-[5%] w-4 h-4 bg-blue-light border-2 border-white rounded-full shadow cursor-pointer transition-transform duration-200 hover:scale-125">
+              </div>
+              <div
+                class="absolute top-0.5 right-[10%] w-4 h-4 bg-blue-light border-2 border-white rounded-full shadow cursor-pointer transition-transform duration-200 hover:scale-125">
+              </div>
+            </div>
+          </div>
+
+          <!-- Filter Section: Series -->
+          <div class="border-t border-slate-100 pt-4 mb-6">
+            <h4 class="font-bold text-xs text-primary-navy uppercase tracking-wider mb-3">Series</h4>
+            <div class="space-y-2">
+              <label class="flex items-center gap-3 cursor-pointer group">
+                <input type="checkbox" value="vanquish"
+                  class="series-checkbox w-4 h-4 rounded text-blue-light border-slate-300 focus:ring-blue-light/20 transition-all duration-200">
+                <span
+                  class="text-sm font-bold text-text-charcoal group-hover:text-primary-navy transition-colors duration-200">Vanquish
+                  (6)</span>
+              </label>
+              <label class="flex items-center gap-3 cursor-pointer group">
+                <input type="checkbox" value="equinox"
+                  class="series-checkbox w-4 h-4 rounded text-blue-light border-slate-300 focus:ring-blue-light/20 transition-all duration-200">
+                <span
+                  class="text-sm font-bold text-text-charcoal group-hover:text-primary-navy transition-colors duration-200">Equinox
+                  (12)</span>
+              </label>
+              <label class="flex items-center gap-3 cursor-pointer group">
+                <input type="checkbox" value="x-terra"
+                  class="series-checkbox w-4 h-4 rounded text-blue-light border-slate-300 focus:ring-blue-light/20 transition-all duration-200">
+                <span
+                  class="text-sm font-bold text-text-charcoal group-hover:text-primary-navy transition-colors duration-200">X-Terra
+                  (9)</span>
+              </label>
+              <label class="flex items-center gap-3 cursor-pointer group">
+                <input type="checkbox" value="go-find"
+                  class="series-checkbox w-4 h-4 rounded text-blue-light border-slate-300 focus:ring-blue-light/20 transition-all duration-200">
+                <span
+                  class="text-sm font-bold text-text-charcoal group-hover:text-primary-navy transition-colors duration-200">Go-Find
+                  (6)</span>
+              </label>
+              <label class="flex items-center gap-3 cursor-pointer group">
+                <input type="checkbox" value="manticore"
+                  class="series-checkbox w-4 h-4 rounded text-blue-light border-slate-300 focus:ring-blue-light/20 transition-all duration-200">
+                <span
+                  class="text-sm font-bold text-text-charcoal group-hover:text-primary-navy transition-colors duration-200">Manticore
+                  (3)</span>
+              </label>
+              <label class="flex items-center gap-3 cursor-pointer group">
+                <input type="checkbox" value="accessories"
+                  class="series-checkbox w-4 h-4 rounded text-blue-light border-slate-300 focus:ring-blue-light/20 transition-all duration-200">
+                <span
+                  class="text-sm font-bold text-text-charcoal group-hover:text-primary-navy transition-colors duration-200">Accessories
+                  (4)</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Filter Section: Key Features -->
+          <div class="border-t border-slate-100 pt-4 mb-6">
+            <h4 class="font-bold text-xs text-primary-navy uppercase tracking-wider mb-3">Key Features</h4>
+            <div class="space-y-2">
+              <label class="flex items-center gap-3 cursor-pointer group">
+                <input type="checkbox" value="waterproof"
+                  class="feature-checkbox w-4 h-4 rounded text-blue-light border-slate-300 focus:ring-blue-light/20 transition-all duration-200">
+                <span
+                  class="text-sm font-bold text-text-charcoal group-hover:text-primary-navy transition-colors duration-200">Waterproof
+                  (23)</span>
+              </label>
+              <label class="flex items-center gap-3 cursor-pointer group">
+                <input type="checkbox" value="wireless-audio"
+                  class="feature-checkbox w-4 h-4 rounded text-blue-light border-slate-300 focus:ring-blue-light/20 transition-all duration-200">
+                <span
+                  class="text-sm font-bold text-text-charcoal group-hover:text-primary-navy transition-colors duration-200">Wireless
+                  Audio (18)</span>
+              </label>
+              <label class="flex items-center gap-3 cursor-pointer group">
+                <input type="checkbox" value="rechargeable"
+                  class="feature-checkbox w-4 h-4 rounded text-blue-light border-slate-300 focus:ring-blue-light/20 transition-all duration-200">
+                <span
+                  class="text-sm font-bold text-text-charcoal group-hover:text-primary-navy transition-colors duration-200">Rechargeable
+                  (31)</span>
+              </label>
+              <label class="flex items-center gap-3 cursor-pointer group">
+                <input type="checkbox" value="multi-frequency"
+                  class="feature-checkbox w-4 h-4 rounded text-blue-light border-slate-300 focus:ring-blue-light/20 transition-all duration-200">
+                <span
+                  class="text-sm font-bold text-text-charcoal group-hover:text-primary-navy transition-colors duration-200">Multi-Frequency
+                  (15)</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Buttons -->
+          <div class="flex gap-2.5 mt-6 pt-5 border-t border-slate-100">
+            <button onclick="applyFilters()"
+              class="flex-1 bg-primary-navy hover:bg-primary-navy-light text-white text-xs font-extrabold py-3 px-4 rounded-xl shadow-md transition-all duration-200 uppercase tracking-wider text-center">
+              Apply Filters
+            </button>
+            <button onclick="resetFilters()"
+              class="flex-1 border border-slate-200 hover:border-slate-300 text-text-charcoal hover:bg-slate-50 text-xs font-extrabold py-2.5 px-4 rounded-xl transition-all duration-200 uppercase tracking-wider text-center">
+              Clear All
+            </button>
+          </div>
+        </aside>
+
+        <!-- Product Grid (3/4 width on desktop) -->
+        <div class="flex-grow">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="catalog-grid">
+
+            <!-- Card 1: Manticore -->
+            <div
+              class="bg-white border border-slate-200 rounded-3xl p-4 flex flex-col justify-between hover:shadow-premium hover:border-primary-navy/20 hover:-translate-y-1.5 transition-all duration-300 relative group"
+              data-series="manticore" data-type="detector"
+              data-features="waterproof,wireless-audio,rechargeable,multi-frequency">
+              <span
+                class="absolute top-4 left-4 bg-red-600 text-white text-[10px] font-extrabold px-2.5 py-1 rounded-md uppercase tracking-wider z-10 shadow-sm">Best
+                Seller</span>
+
+              <div
+                class="bg-slate-50 rounded-2xl h-48 flex items-center justify-center mb-4 overflow-hidden relative border border-slate-100/50">
+                <img src="assets/equinox_product.png" alt="Minelab Manticore"
+                  class="max-h-40 object-contain group-hover:scale-105 transition-transform duration-300">
+              </div>
+
+              <div>
+                <span class="text-[10px] text-text-muted font-bold tracking-widest uppercase">MINELAB</span>
+                <h4 class="text-base font-extrabold text-primary-navy uppercase font-display tracking-wide mb-1">Minelab
+                  Manticore</h4>
+
+                <!-- Rating Stars -->
+                <div class="flex items-center gap-1.5 mb-3">
+                  <div class="flex text-emerald-500">
+                    <i data-lucide="star" class="w-3.5 h-3.5 fill-emerald-500"></i>
+                    <i data-lucide="star" class="w-3.5 h-3.5 fill-emerald-500"></i>
+                    <i data-lucide="star" class="w-3.5 h-3.5 fill-emerald-500"></i>
+                    <i data-lucide="star" class="w-3.5 h-3.5 fill-emerald-500"></i>
+                    <i data-lucide="star" class="w-3.5 h-3.5 fill-emerald-500"></i>
+                  </div>
+                  <span
+                    class="text-[11px] text-text-muted font-bold flex items-center gap-0.5 hover:underline cursor-pointer">
+                    11 reviews
+                    <i data-lucide="chevron-down" class="w-3 h-3"></i>
+                  </span>
+                </div>
+
+                <div class="text-sm font-bold text-text-charcoal mb-4">
+                  From <span class="text-lg font-black text-primary-navy">£1,299.00</span>
+                </div>
+
+                <!-- Stock Badges -->
+                <div class="flex flex-wrap gap-1.5 mb-5">
+                  <span
+                    class="border border-emerald-500/25 text-emerald-600 bg-emerald-50/50 text-[10px] font-extrabold px-2.5 py-1 rounded-md tracking-wide">In
+                    Stock</span>
+                  <span
+                    class="border border-slate-200 text-slate-500 bg-slate-50 text-[10px] font-extrabold px-2.5 py-1 rounded-md tracking-wide">Free
+                    UK Delivery</span>
+                </div>
+              </div>
+
+              <!-- Card Actions -->
+              <div class="flex items-center gap-2 pt-3 border-t border-slate-100">
+                <button
+                  class="flex-grow bg-[#0054A6] hover:bg-[#004080] text-white text-xs font-extrabold py-2.5 px-4 rounded-xl shadow transition-colors duration-200 quick-view-btn"
+                  data-id="manticore">
+                  View Details
+                </button>
+                <button
+                  class="border border-slate-200 hover:border-[#0054A6] hover:bg-blue-50 text-text-charcoal hover:text-[#0054A6] p-2.5 rounded-xl transition-all duration-200 add-to-cart-btn"
+                  data-id="manticore" data-name="Manticore" data-price="1299" aria-label="Add to cart">
+                  <i data-lucide="shopping-cart" class="w-4 h-4"></i>
+                </button>
+                <button
+                  class="border border-slate-200 hover:border-red-500 hover:bg-red-50 text-text-charcoal hover:text-red-500 p-2.5 rounded-xl transition-all duration-200 compare-btn"
+                  aria-label="Add to wishlist">
+                  <i data-lucide="heart" class="w-4 h-4"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Card 2: Equinox 900 -->
+            <div
+              class="bg-white border border-slate-200 rounded-3xl p-4 flex flex-col justify-between hover:shadow-premium hover:border-primary-navy/20 hover:-translate-y-1.5 transition-all duration-300 relative group"
+              data-series="equinox" data-type="detector"
+              data-features="waterproof,wireless-audio,rechargeable,multi-frequency">
+              <span
+                class="absolute top-4 left-4 bg-primary-navy text-white text-[10px] font-extrabold px-2.5 py-1 rounded-md uppercase tracking-wider z-10 shadow-sm">Top
+                Rated</span>
+
+              <div
+                class="bg-slate-50 rounded-2xl h-48 flex items-center justify-center mb-4 overflow-hidden relative border border-slate-100/50">
+                <img src="assets/equinox_product.png" alt="Minelab Equinox 900"
+                  class="max-h-40 object-contain group-hover:scale-105 transition-transform duration-300">
+              </div>
+
+              <div>
+                <span class="text-[10px] text-text-muted font-bold tracking-widest uppercase">MINELAB</span>
+                <h4 class="text-base font-extrabold text-primary-navy uppercase font-display tracking-wide mb-1">Minelab
+                  Equinox 900</h4>
+
+                <!-- Rating Stars -->
+                <div class="flex items-center gap-1.5 mb-3">
+                  <div class="flex text-emerald-500">
+                    <i data-lucide="star" class="w-3.5 h-3.5 fill-emerald-500"></i>
+                    <i data-lucide="star" class="w-3.5 h-3.5 fill-emerald-500"></i>
+                    <i data-lucide="star" class="w-3.5 h-3.5 fill-emerald-500"></i>
+                    <i data-lucide="star" class="w-3.5 h-3.5 fill-emerald-500"></i>
+                    <i data-lucide="star" class="w-3.5 h-3.5 fill-emerald-500"></i>
+                  </div>
+                  <span
+                    class="text-[11px] text-text-muted font-bold flex items-center gap-0.5 hover:underline cursor-pointer">
+                    11 reviews
+                    <i data-lucide="chevron-down" class="w-3 h-3"></i>
+                  </span>
+                </div>
+
+                <div class="text-sm font-bold text-text-charcoal mb-4">
+                  From <span class="text-lg font-black text-primary-navy">£899.00</span>
+                </div>
+
+                <!-- Stock Badges -->
+                <div class="flex flex-wrap gap-1.5 mb-5">
+                  <span
+                    class="border border-emerald-500/25 text-emerald-600 bg-emerald-50/50 text-[10px] font-extrabold px-2.5 py-1 rounded-md tracking-wide">In
+                    Stock</span>
+                  <span
+                    class="border border-slate-200 text-slate-500 bg-slate-50 text-[10px] font-extrabold px-2.5 py-1 rounded-md tracking-wide">Free
+                    UK Delivery</span>
+                </div>
+              </div>
+
+              <!-- Card Actions -->
+              <div class="flex items-center gap-2 pt-3 border-t border-slate-100">
+                <button
+                  class="flex-grow bg-[#0054A6] hover:bg-[#004080] text-white text-xs font-extrabold py-2.5 px-4 rounded-xl shadow transition-colors duration-200 quick-view-btn"
+                  data-id="eq900">
+                  View Details
+                </button>
+                <button
+                  class="border border-slate-200 hover:border-[#0054A6] hover:bg-blue-50 text-text-charcoal hover:text-[#0054A6] p-2.5 rounded-xl transition-all duration-200 add-to-cart-btn"
+                  data-id="eq900" data-name="Equinox 900" data-price="899" aria-label="Add to cart">
+                  <i data-lucide="shopping-cart" class="w-4 h-4"></i>
+                </button>
+                <button
+                  class="border border-slate-200 hover:border-red-500 hover:bg-red-50 text-text-charcoal hover:text-red-500 p-2.5 rounded-xl transition-all duration-200 compare-btn"
+                  aria-label="Add to wishlist">
+                  <i data-lucide="heart" class="w-4 h-4"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Card 3: Vanquish 360 -->
+            <div
+              class="bg-white border border-slate-200 rounded-3xl p-4 flex flex-col justify-between hover:shadow-premium hover:border-primary-navy/20 hover:-translate-y-1.5 transition-all duration-300 relative group"
+              data-series="vanquish" data-type="detector" data-features="rechargeable,multi-frequency">
+              <span
+                class="absolute top-4 left-4 bg-red-600 text-white text-[10px] font-extrabold px-2.5 py-1 rounded-md uppercase tracking-wider z-10 shadow-sm">Best
+                Seller</span>
+
+              <div
+                class="bg-slate-50 rounded-2xl h-48 flex items-center justify-center mb-4 overflow-hidden relative border border-slate-100/50">
+                <img src="assets/product-image.png" alt="Minelab Vanquish 360"
+                  class="max-h-40 object-contain group-hover:scale-105 transition-transform duration-300">
+              </div>
+
+              <div>
+                <span class="text-[10px] text-text-muted font-bold tracking-widest uppercase">MINELAB</span>
+                <h4 class="text-base font-extrabold text-primary-navy uppercase font-display tracking-wide mb-1">Minelab
+                  VANQUISH 360</h4>
+
+                <!-- Rating Stars -->
+                <div class="flex items-center gap-1.5 mb-3">
+                  <div class="flex text-emerald-500">
+                    <i data-lucide="star" class="w-3.5 h-3.5 fill-emerald-500"></i>
+                    <i data-lucide="star" class="w-3.5 h-3.5 fill-emerald-500"></i>
+                    <i data-lucide="star" class="w-3.5 h-3.5 fill-emerald-500"></i>
+                    <i data-lucide="star" class="w-3.5 h-3.5 fill-emerald-500"></i>
+                    <i data-lucide="star" class="w-3.5 h-3.5 fill-emerald-500"></i>
+                  </div>
+                  <span
+                    class="text-[11px] text-text-muted font-bold flex items-center gap-0.5 hover:underline cursor-pointer">
+                    11 reviews
+                    <i data-lucide="chevron-down" class="w-3 h-3"></i>
+                  </span>
+                </div>
+
+                <div class="text-sm font-bold text-text-charcoal mb-4">
+                  From <span class="text-lg font-black text-primary-navy">£299.00</span>
+                </div>
+
+                <!-- Stock Badges -->
+                <div class="flex flex-wrap gap-1.5 mb-5">
+                  <span
+                    class="border border-emerald-500/25 text-emerald-600 bg-emerald-50/50 text-[10px] font-extrabold px-2.5 py-1 rounded-md tracking-wide">In
+                    Stock</span>
+                  <span
+                    class="border border-slate-200 text-slate-500 bg-slate-50 text-[10px] font-extrabold px-2.5 py-1 rounded-md tracking-wide">Free
+                    UK Delivery</span>
+                </div>
+              </div>
+
+              <!-- Card Actions -->
+              <div class="flex items-center gap-2 pt-3 border-t border-slate-100">
+                <button
+                  class="flex-grow bg-[#0054A6] hover:bg-[#004080] text-white text-xs font-extrabold py-2.5 px-4 rounded-xl shadow transition-colors duration-200 quick-view-btn"
+                  data-id="vanq540">
+                  View Details
+                </button>
+                <button
+                  class="border border-slate-200 hover:border-[#0054A6] hover:bg-blue-50 text-text-charcoal hover:text-[#0054A6] p-2.5 rounded-xl transition-all duration-200 add-to-cart-btn"
+                  data-id="vanq540" data-name="Vanquish 540" data-price="299" aria-label="Add to cart">
+                  <i data-lucide="shopping-cart" class="w-4 h-4"></i>
+                </button>
+                <button
+                  class="border border-slate-200 hover:border-red-500 hover:bg-red-50 text-text-charcoal hover:text-red-500 p-2.5 rounded-xl transition-all duration-200 compare-btn"
+                  aria-label="Add to wishlist">
+                  <i data-lucide="heart" class="w-4 h-4"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Card 4: Minelab X-TERRA ELITE -->
+            <div
+              class="bg-white border border-slate-200 rounded-3xl p-4 flex flex-col justify-between hover:shadow-premium hover:border-primary-navy/20 hover:-translate-y-1.5 transition-all duration-300 relative group"
+              data-series="x-terra" data-type="detector"
+              data-features="waterproof,wireless-audio,rechargeable,multi-frequency">
+              <span
+                class="absolute top-4 left-4 bg-blue-600 text-white text-[10px] font-extrabold px-2.5 py-1 rounded-md uppercase tracking-wider z-10 shadow-sm">Best
+                Value</span>
+
+              <div
+                class="bg-slate-50 rounded-2xl h-48 flex items-center justify-center mb-4 overflow-hidden relative border border-slate-100/50">
+                <img src="assets/equinox_product.png" alt="Minelab X-TERRA ELITE"
+                  class="max-h-40 object-contain group-hover:scale-105 transition-transform duration-300">
+              </div>
+
+              <div>
+                <span class="text-[10px] text-text-muted font-bold tracking-widest uppercase">MINELAB</span>
+                <h4 class="text-base font-extrabold text-primary-navy uppercase font-display tracking-wide mb-1">Minelab
+                  X-TERRA ELITE</h4>
+
+                <!-- Rating Stars -->
+                <div class="flex items-center gap-1.5 mb-3">
+                  <div class="flex text-emerald-500">
+                    <i data-lucide="star" class="w-3.5 h-3.5 fill-emerald-500"></i>
+                    <i data-lucide="star" class="w-3.5 h-3.5 fill-emerald-500"></i>
+                    <i data-lucide="star" class="w-3.5 h-3.5 fill-emerald-500"></i>
+                    <i data-lucide="star" class="w-3.5 h-3.5 fill-emerald-500"></i>
+                    <i data-lucide="star" class="w-3.5 h-3.5 fill-emerald-500"></i>
+                  </div>
+                  <span
+                    class="text-[11px] text-text-muted font-bold flex items-center gap-0.5 hover:underline cursor-pointer">
+                    11 reviews
+                    <i data-lucide="chevron-down" class="w-3 h-3"></i>
+                  </span>
+                </div>
+
+                <div class="text-sm font-bold text-text-charcoal mb-4">
+                  From <span class="text-lg font-black text-primary-navy">£549.00</span>
+                </div>
+
+                <!-- Stock Badges -->
+                <div class="flex flex-wrap gap-1.5 mb-5">
+                  <span
+                    class="border border-emerald-500/25 text-emerald-600 bg-emerald-50/50 text-[10px] font-extrabold px-2.5 py-1 rounded-md tracking-wide">In
+                    Stock</span>
+                  <span
+                    class="border border-slate-200 text-slate-500 bg-slate-50 text-[10px] font-extrabold px-2.5 py-1 rounded-md tracking-wide">Free
+                    UK Delivery</span>
+                </div>
+              </div>
+
+              <!-- Card Actions -->
+              <div class="flex items-center gap-2 pt-3 border-t border-slate-100">
+                <button
+                  class="flex-grow bg-[#0054A6] hover:bg-[#004080] text-white text-xs font-extrabold py-2.5 px-4 rounded-xl shadow transition-colors duration-200 quick-view-btn"
+                  data-id="xterraelite">
+                  View Details
+                </button>
+                <button
+                  class="border border-slate-200 hover:border-[#0054A6] hover:bg-blue-50 text-text-charcoal hover:text-[#0054A6] p-2.5 rounded-xl transition-all duration-200 add-to-cart-btn"
+                  data-id="xterraelite" data-name="X-Terra Elite" data-price="549" aria-label="Add to cart">
+                  <i data-lucide="shopping-cart" class="w-4 h-4"></i>
+                </button>
+                <button
+                  class="border border-slate-200 hover:border-red-500 hover:bg-red-50 text-text-charcoal hover:text-red-500 p-2.5 rounded-xl transition-all duration-200 compare-btn"
+                  aria-label="Add to wishlist">
+                  <i data-lucide="heart" class="w-4 h-4"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Card 5: Vanquish 340 Bundle -->
+            <div
+              class="bg-white border border-slate-200 rounded-3xl p-4 flex flex-col justify-between hover:shadow-premium hover:border-primary-navy/20 hover:-translate-y-1.5 transition-all duration-300 relative group"
+              data-series="vanquish" data-type="bundle" data-features="rechargeable,multi-frequency">
+              <span
+                class="absolute top-4 left-4 bg-red-600 text-white text-[10px] font-extrabold px-2.5 py-1 rounded-md uppercase tracking-wider z-10 shadow-sm">Bundle
+                Deal</span>
+
+              <div
+                class="bg-slate-50 rounded-2xl h-48 flex items-center justify-center mb-4 overflow-hidden relative border border-slate-100/50">
+                <img src="assets/product-image.png" alt="Vanquish 340 Bundle"
+                  class="max-h-40 object-contain group-hover:scale-105 transition-transform duration-300">
+              </div>
+
+              <div>
+                <span class="text-[10px] text-text-muted font-bold tracking-widest uppercase">MINELAB</span>
+                <h4 class="text-base font-extrabold text-primary-navy uppercase font-display tracking-wide mb-1">
+                  Vanquish 340 Bundle</h4>
+
+                <!-- Rating Stars -->
+                <div class="flex items-center gap-1.5 mb-3">
+                  <div class="flex text-emerald-500">
+                    <i data-lucide="star" class="w-3.5 h-3.5 fill-emerald-500"></i>
+                    <i data-lucide="star" class="w-3.5 h-3.5 fill-emerald-500"></i>
+                    <i data-lucide="star" class="w-3.5 h-3.5 fill-emerald-500"></i>
+                    <i data-lucide="star" class="w-3.5 h-3.5 fill-emerald-500"></i>
+                    <i data-lucide="star" class="w-3.5 h-3.5 fill-emerald-500"></i>
+                  </div>
+                  <span
+                    class="text-[11px] text-text-muted font-bold flex items-center gap-0.5 hover:underline cursor-pointer">
+                    11 reviews
+                    <i data-lucide="chevron-down" class="w-3 h-3"></i>
+                  </span>
+                </div>
+
+                <div class="text-sm font-bold text-text-charcoal mb-4">
+                  From <span class="text-lg font-black text-primary-navy">£339.00</span>
+                </div>
+
+                <!-- Stock Badges -->
+                <div class="flex flex-wrap gap-1.5 mb-5">
+                  <span
+                    class="border border-emerald-500/25 text-emerald-600 bg-emerald-50/50 text-[10px] font-extrabold px-2.5 py-1 rounded-md tracking-wide">In
+                    Stock</span>
+                  <span
+                    class="border border-slate-200 text-slate-500 bg-slate-50 text-[10px] font-extrabold px-2.5 py-1 rounded-md tracking-wide">Free
+                    UK Delivery</span>
+                </div>
+              </div>
+
+              <!-- Card Actions -->
+              <div class="flex items-center gap-2 pt-3 border-t border-slate-100">
+                <button
+                  class="flex-grow bg-[#0054A6] hover:bg-[#004080] text-white text-xs font-extrabold py-2.5 px-4 rounded-xl shadow transition-colors duration-200 quick-view-btn"
+                  data-id="vanq340">
+                  View Details
+                </button>
+                <button
+                  class="border border-slate-200 hover:border-[#0054A6] hover:bg-blue-50 text-text-charcoal hover:text-[#0054A6] p-2.5 rounded-xl transition-all duration-200 add-to-cart-btn"
+                  data-id="vanq340" data-name="Vanquish 340 Bundle" data-price="339" aria-label="Add to cart">
+                  <i data-lucide="shopping-cart" class="w-4 h-4"></i>
+                </button>
+                <button
+                  class="border border-slate-200 hover:border-red-500 hover:bg-red-50 text-text-charcoal hover:text-red-500 p-2.5 rounded-xl transition-all duration-200 compare-btn"
+                  aria-label="Add to wishlist">
+                  <i data-lucide="heart" class="w-4 h-4"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Card 6: Minelab MANTICORE -->
+            <div
+              class="bg-white border border-slate-200 rounded-3xl p-4 flex flex-col justify-between hover:shadow-premium hover:border-primary-navy/20 hover:-translate-y-1.5 transition-all duration-300 relative group"
+              data-series="manticore" data-type="detector"
+              data-features="waterproof,wireless-audio,rechargeable,multi-frequency">
+              <span
+                class="absolute top-4 left-4 bg-red-600 text-white text-[10px] font-extrabold px-2.5 py-1 rounded-md uppercase tracking-wider z-10 shadow-sm">Best
+                Seller</span>
+
+              <div
+                class="bg-slate-50 rounded-2xl h-48 flex items-center justify-center mb-4 overflow-hidden relative border border-slate-100/50">
+                <img src="assets/equinox_product.png" alt="Minelab Manticore"
+                  class="max-h-40 object-contain group-hover:scale-105 transition-transform duration-300">
+              </div>
+
+              <div>
+                <span class="text-[10px] text-text-muted font-bold tracking-widest uppercase">MINELAB</span>
+                <h4 class="text-base font-extrabold text-primary-navy uppercase font-display tracking-wide mb-1">Minelab
+                  Manticore</h4>
+
+                <!-- Rating Stars -->
+                <div class="flex items-center gap-1.5 mb-3">
+                  <div class="flex text-emerald-500">
+                    <i data-lucide="star" class="w-3.5 h-3.5 fill-emerald-500"></i>
+                    <i data-lucide="star" class="w-3.5 h-3.5 fill-emerald-500"></i>
+                    <i data-lucide="star" class="w-3.5 h-3.5 fill-emerald-500"></i>
+                    <i data-lucide="star" class="w-3.5 h-3.5 fill-emerald-500"></i>
+                    <i data-lucide="star" class="w-3.5 h-3.5 fill-emerald-500"></i>
+                  </div>
+                  <span
+                    class="text-[11px] text-text-muted font-bold flex items-center gap-0.5 hover:underline cursor-pointer">
+                    11 reviews
+                    <i data-lucide="chevron-down" class="w-3 h-3"></i>
+                  </span>
+                </div>
+
+                <div class="text-sm font-bold text-text-charcoal mb-4">
+                  From <span class="text-lg font-black text-primary-navy">£1,299.00</span>
+                </div>
+
+                <!-- Stock Badges -->
+                <div class="flex flex-wrap gap-1.5 mb-5">
+                  <span
+                    class="border border-emerald-500/25 text-emerald-600 bg-emerald-50/50 text-[10px] font-extrabold px-2.5 py-1 rounded-md tracking-wide">In
+                    Stock</span>
+                  <span
+                    class="border border-slate-200 text-slate-500 bg-slate-50 text-[10px] font-extrabold px-2.5 py-1 rounded-md tracking-wide">Free
+                    UK Delivery</span>
+                </div>
+              </div>
+
+              <!-- Card Actions -->
+              <div class="flex items-center gap-2 pt-3 border-t border-slate-100">
+                <button
+                  class="flex-grow bg-[#0054A6] hover:bg-[#004080] text-white text-xs font-extrabold py-2.5 px-4 rounded-xl shadow transition-colors duration-200 quick-view-btn"
+                  data-id="manticore">
+                  View Details
+                </button>
+                <button
+                  class="border border-slate-200 hover:border-[#0054A6] hover:bg-blue-50 text-text-charcoal hover:text-[#0054A6] p-2.5 rounded-xl transition-all duration-200 add-to-cart-btn"
+                  data-id="manticore" data-name="Manticore" data-price="1299" aria-label="Add to cart">
+                  <i data-lucide="shopping-cart" class="w-4 h-4"></i>
+                </button>
+                <button
+                  class="border border-slate-200 hover:border-red-500 hover:bg-red-50 text-text-charcoal hover:text-red-500 p-2.5 rounded-xl transition-all duration-200 compare-btn"
+                  aria-label="Add to wishlist">
+                  <i data-lucide="heart" class="w-4 h-4"></i>
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Pagination -->
+          <div class="flex justify-center items-center gap-2 mt-12 font-body font-bold text-sm text-[#0054A6]">
+            <button
+              class="w-8 h-8 rounded-lg flex items-center justify-center border border-slate-200 bg-white hover:bg-slate-50 transition-colors duration-200"
+              aria-label="First page">
+              |&lt;
+            </button>
+            <button
+              class="w-8 h-8 rounded-lg flex items-center justify-center border border-slate-200 bg-white hover:bg-slate-50 transition-colors duration-200"
+              aria-label="Previous page">
+              &lt;
+            </button>
+            <button
+              class="w-8 h-8 rounded-lg flex items-center justify-center border border-slate-200 bg-white hover:bg-slate-50 transition-colors duration-200 hover:border-blue-500">
+              1
+            </button>
+            <button
+              class="w-8 h-8 rounded-lg flex items-center justify-center border border-slate-200 bg-white hover:bg-slate-50 transition-colors duration-200 hover:border-blue-500">
+              2
+            </button>
+            <button
+              class="w-8 h-8 rounded-lg flex items-center justify-center border border-slate-200 bg-white hover:bg-slate-50 transition-colors duration-200 hover:border-blue-500">
+              3
+            </button>
+            <button
+              class="w-8 h-8 rounded-lg flex items-center justify-center bg-blue-light text-white shadow-md transition-colors duration-200">
+              4
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive filter script -->
+  <script>
+    function toggleCategory(cat) {
+      const allCb = document.getElementById('filter-all');
+      const detectorsCb = document.getElementById('filter-detectors');
+      const bundlesCb = document.getElementById('filter-bundles');
+
+      if (cat === 'all') {
+        if (allCb.checked) {
+          detectorsCb.checked = false;
+          bundlesCb.checked = false;
+          allCb.parentElement.parentElement.classList.add('bg-[#eef5fb]');
+          detectorsCb.parentElement.parentElement.classList.remove('bg-[#eef5fb]');
+          bundlesCb.parentElement.parentElement.classList.remove('bg-[#eef5fb]');
+        }
+      } else {
+        allCb.checked = false;
+        allCb.parentElement.parentElement.classList.remove('bg-[#eef5fb]');
+
+        if (detectorsCb.checked) {
+          detectorsCb.parentElement.parentElement.classList.add('bg-[#eef5fb]');
+        } else {
+          detectorsCb.parentElement.parentElement.classList.remove('bg-[#eef5fb]');
+        }
+
+        if (bundlesCb.checked) {
+          bundlesCb.parentElement.parentElement.classList.add('bg-[#eef5fb]');
+        } else {
+          bundlesCb.parentElement.parentElement.classList.remove('bg-[#eef5fb]');
+        }
+
+        if (!detectorsCb.checked && !bundlesCb.checked) {
+          allCb.checked = true;
+          allCb.parentElement.parentElement.classList.add('bg-[#eef5fb]');
+        }
+      }
+    }
+
+    function applyFilters() {
+      const allCb = document.getElementById('filter-all');
+      const detectorsCb = document.getElementById('filter-detectors');
+      const bundlesCb = document.getElementById('filter-bundles');
+
+      const selectedSeries = Array.from(document.querySelectorAll('.series-checkbox:checked')).map(cb => cb.value);
+      const selectedFeatures = Array.from(document.querySelectorAll('.feature-checkbox:checked')).map(cb => cb.value);
+
+      const cards = document.querySelectorAll('#catalog-grid > div');
+
+      cards.forEach(card => {
+        let show = true;
+
+        // 1. Category Filter
+        const type = card.getAttribute('data-type');
+        if (!allCb.checked) {
+          if (detectorsCb.checked && type !== 'detector') show = false;
+          if (bundlesCb.checked && type !== 'bundle') show = false;
+        }
+
+        // 2. Series Filter
+        const series = card.getAttribute('data-series');
+        if (selectedSeries.length > 0) {
+          if (!selectedSeries.includes(series)) show = false;
+        }
+
+        // 3. Features Filter
+        const featuresAttr = card.getAttribute('data-features') || '';
+        const cardFeatures = featuresAttr.split(',').filter(f => f);
+        if (selectedFeatures.length > 0) {
+          selectedFeatures.forEach(feature => {
+            if (!cardFeatures.includes(feature)) show = false;
+          });
+        }
+
+        if (show) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+
+    // Call applyFilters inside load of lucide icons if needed
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+    });
+
+    function resetFilters() {
+      document.getElementById('filter-all').checked = true;
+      document.getElementById('filter-detectors').checked = false;
+      document.getElementById('filter-bundles').checked = false;
+
+      document.getElementById('filter-all').parentElement.parentElement.classList.add('bg-[#eef5fb]');
+      document.getElementById('filter-detectors').parentElement.parentElement.classList.remove('bg-[#eef5fb]');
+      document.getElementById('filter-bundles').parentElement.parentElement.classList.remove('bg-[#eef5fb]');
+
+      document.querySelectorAll('.series-checkbox').forEach(cb => cb.checked = false);
+      document.querySelectorAll('.feature-checkbox').forEach(cb => cb.checked = false);
+
+      document.querySelectorAll('#catalog-grid > div').forEach(card => card.classList.remove('hidden'));
+    }
+  </script>
+
+  <!-- 12. WHY CHOOSE MINELAB SECTION -->
+  <section class="py-12 md:py-16 bg-[#f7fcfe] font-body border-t border-b border-slate-100" id="why-choose-minelab">
+    <div class="container-custom">
+      <!-- Section Header -->
+      <div class="text-center mb-10 md:mb-12">
+        <h2 class="text-3xl md:text-5xl font-bold text-blue-light tracking-tight mb-3">
+          Why Choose Minelab?
+        </h2>
+        <p class="text-text-charcoal text-base md:text-lg font-medium">
+          Innovation, reliability, and performance you can count on
+        </p>
+      </div>
+
+      <!-- Features Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 lg:gap-10 mt-8">
+        <!-- Feature 1: Multi-IQ Technology -->
+        <div class="flex items-start gap-3 md:gap-4 hover:translate-y-[-2px] transition-transform duration-300">
+          <div class="flex-shrink-0 text-blue-light mt-1">
+            <!-- Icon: Wave & Globe -->
+            <svg class="w-12 h-12" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 24c1.5-6 3-6 4.5 0s3 6 4.5 0 3-10 4.5 0 3 10 4.5 0" />
+              <circle cx="4" cy="24" r="1" fill="currentColor" />
+              <circle cx="22" cy="24" r="1" fill="currentColor" />
+              <circle cx="34" cy="24" r="9" />
+              <path d="M25 24h18" />
+              <path d="M34 15c2.2 2.5 2.2 15.5 0 18" />
+              <path d="M34 15c-2.2 2.5 -2.2 15.5 0 18" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-bold text-lg md:text-xl text-blue-light leading-snug">
+              Multi-IQ<br class="hidden sm:inline"> Technology
+            </h3>
+            <p class="text-sm text-text-charcoal mt-1 leading-relaxed">
+              Accurate multi-frequency detection across all terrains.
+            </p>
+          </div>
+        </div>
+
+        <!-- Feature 2: Superior Depth -->
+        <div class="flex items-start gap-3 md:gap-4 hover:translate-y-[-2px] transition-transform duration-300">
+          <div class="flex-shrink-0 text-blue-light mt-1">
+            <!-- Icon: Ground layers and Arrow -->
+            <svg class="w-12 h-12" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="6" y="10" width="36" height="12" rx="2" />
+              <line x1="6" y1="14" x2="42" y2="14" />
+              <line x1="6" y1="18" x2="42" y2="18" />
+              <line x1="24" y1="10" x2="24" y2="30" />
+              <path d="M20 26l4 4 4-4" />
+              <path d="M16 36c4-4 12-4 16 0" />
+              <path d="M12 40c6-5 18-5 24 0" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-bold text-lg md:text-xl text-blue-light leading-snug">
+              Superior<br class="hidden sm:inline"> Depth
+            </h3>
+            <p class="text-sm text-text-charcoal mt-1 leading-relaxed">
+              Find deeper targets others miss.
+            </p>
+          </div>
+        </div>
+
+        <!-- Feature 3: All-Terrain Performance -->
+        <div class="flex items-start gap-3 md:gap-4 hover:translate-y-[-2px] transition-transform duration-300">
+          <div class="flex-shrink-0 text-blue-light mt-1">
+            <!-- Icon: Mountains & Sea/Terrain -->
+            <svg class="w-12 h-12" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 24l8-10 6 8 8-12 14 14" />
+              <path d="M6 32c5-2 10 2 15 0s10-2 15 0 6 1 6 1" />
+              <path d="M6 38h36" />
+              <circle cx="12" cy="42" r="1" fill="currentColor" />
+              <circle cx="24" cy="41" r="1.5" fill="currentColor" />
+              <circle cx="36" cy="42" r="1" fill="currentColor" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-bold text-lg md:text-xl text-blue-light leading-snug">
+              All-Terrain<br class="hidden sm:inline"> Performance
+            </h3>
+            <p class="text-sm text-text-charcoal mt-1 leading-relaxed">
+              Reliable performance in any environment.
+            </p>
+          </div>
+        </div>
+
+        <!-- Feature 4: Trusted Worldwide -->
+        <div class="flex items-start gap-3 md:gap-4 hover:translate-y-[-2px] transition-transform duration-300">
+          <div class="flex-shrink-0 text-blue-light mt-1">
+            <!-- Icon: Shield / Compass / Handshake -->
+            <svg class="w-12 h-12" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M24 6c7.5 0 14 2.5 14 2.5v12.5c0 7.5-6 13.5-14 16-8-2.5-14-8.5-14-16V8.5S16.5 6 24 6z" />
+              <circle cx="24" cy="18" r="5" />
+              <path d="M24 13v10M19 18h10" />
+              <path d="M17 29h14M20 32h8" />
+              <path d="M16 26l4 4-4 4" />
+              <path d="M32 26l-4 4 4 4" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-bold text-lg md:text-xl text-blue-light leading-snug">
+              Trusted<br class="hidden sm:inline"> Worldwide
+            </h3>
+            <p class="text-sm text-text-charcoal mt-1 leading-relaxed">
+              Proven by detectorists across the globe.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 13. CRAWFORDS INFO & CTA SECTION -->
+  <section
+    class="bg-gradient-to-b from-white via-[#f7fcfe] to-[#e6f3fc] rounded-b-[48px] md:rounded-b-[64px] pt-4 pb-16 md:pt-8 md:pb-28 font-body relative z-10"
+    id="info-cta">
+    <div class="mx-auto px-4 md:px-10">
+
+      <!-- Cards Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+
+        <!-- Card 1: A Legacy of Innovation -->
+        <div
+          class="bg-white border border-slate-100/80 rounded-[32px] p-6 md:p-8 shadow-[0_10px_30px_rgba(11,34,64,0.04)] hover:shadow-[0_20px_45px_rgba(11,34,64,0.08)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <h3 class="text-xl md:text-2xl font-extrabold text-blue-light font-display mb-2 leading-tight">
+              A Legacy of Innovation
+            </h3>
+            <p class="text-text-charcoal text-xs font-normal">
+              Since 1985, Minelab has set the global standard in metal detecting technology, delivering exceptional
+              depth, accuracy, and performanze trusted worldwide.
+            </p>
+          </div>
+
+          <!-- Stats Row -->
+          <div class="grid grid-cols-3 gap-1 text-center mt-6">
+            <div class="flex flex-col items-center">
+              <img src="assets/timer-icon.png" class="w-6 h-6 md:w-8 md:h-8 object-contain mb-1.5" alt="Timer">
+              <span class="text-sm md:text-base font-extrabold text-blue-light leading-none">33+ Years</span>
+              <span class="text-[9px] font-bold text-text-muted mt-1 uppercase tracking-tight leading-tight">Supporting
+                Detectorists</span>
+            </div>
+            <div class="border-l border-slate-100 flex flex-col items-center pl-1">
+              <img src="assets/cust-icon.png" class="w-6 h-6 md:w-8 md:h-8 object-contain mb-1.5" alt="Customers">
+              <span class="text-sm md:text-base font-extrabold text-blue-light leading-none">20,000+</span>
+              <span
+                class="text-[9px] font-bold text-text-muted mt-1 uppercase tracking-tight leading-tight flex items-center gap-0.5 justify-center">Happy
+                Customers <span class="text-emerald-500 font-extrabold">✓</span></span>
+            </div>
+            <div class="border-l border-slate-100 flex flex-col items-center pl-1">
+              <img src="assets/box-icon.png" class="w-6 h-6 md:w-8 md:h-8 object-contain mb-1.5" alt="Products">
+              <span class="text-sm md:text-base font-extrabold text-blue-light leading-none">500+</span>
+              <span class="text-[9px] font-bold text-text-muted mt-1 uppercase tracking-tight leading-tight">Products
+                Available</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: What Will You Discover? -->
+        <div
+          class="bg-white border border-slate-100/80 rounded-[32px] p-6 md:p-8 shadow-[0_10px_30px_rgba(11,34,64,0.04)] hover:shadow-[0_20px_45px_rgba(11,34,64,0.08)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between text-center">
+          <div>
+            <h3 class="text-xl md:text-2xl font-extrabold text-blue-light font-display mb-2 leading-tight">
+              What Will You Discover?
+            </h3>
+
+            <!-- Images Row -->
+            <div class="grid grid-cols-3 gap-2 md:gap-3 mb-6">
+              <div class="overflow-hidden rounded-2xl shadow-sm">
+                <img src="assets/20.jpg" alt="Ancient coins"
+                  class="w-full aspect-[3/2] object-cover hover:scale-110 transition-transform duration-500">
+              </div>
+              <div class="overflow-hidden rounded-2xl shadow-sm">
+                <img src="assets/21.jpg" alt="Hidden relics"
+                  class="w-full aspect-[3/2] object-cover hover:scale-110 transition-transform duration-500">
+              </div>
+              <div class="overflow-hidden rounded-2xl shadow-sm">
+                <img src="assets/22.jpg" alt="Natural gold"
+                  class="w-full aspect-[3/2] object-cover hover:scale-110 transition-transform duration-500">
+              </div>
+            </div>
+          </div>
+
+          <p class="text-text-charcoal text-sm leading-relaxed font-normal">
+            From ancient coins to hidden relics and natural gold — every signal could lead to your next great find.
+          </p>
+        </div>
+
+        <!-- Card 3: Why Shop With Us? -->
+        <div
+          class="bg-white border border-slate-100/80 rounded-[32px] p-6 md:p-8 shadow-[0_10px_30px_rgba(11,34,64,0.04)] hover:shadow-[0_20px_45px_rgba(11,34,64,0.08)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between text-center">
+          <div>
+            <h3 class="text-xl md:text-2xl font-extrabold text-blue-light font-display mb-8 leading-tight">
+              Why Shop With Us?
+            </h3>
+
+            <!-- Grid of 4 Shop Benefits -->
+            <div class="grid grid-cols-4 gap-2 md:gap-3">
+              <div class="flex flex-col items-center">
+                <img src="assets/t1.png" alt="Authorised Dealer"
+                  class="w-10 h-10 md:w-12 md:h-12 object-contain mb-2 hover:scale-110 transition-transform duration-300">
+                <span class="text-[10px] md:text-xs font-bold text-blue-light leading-tight">Authorised Dealer</span>
+              </div>
+              <div class="flex flex-col items-center">
+                <img src="assets/t2.png" alt="Expert support"
+                  class="w-10 h-10 md:w-12 md:h-12 object-contain mb-2 hover:scale-110 transition-transform duration-300">
+                <span class="text-[10px] md:text-xs font-bold text-blue-light leading-tight">Expert support</span>
+              </div>
+              <div class="flex flex-col items-center">
+                <img src="assets/t3.png" alt="Wide Range in Stock"
+                  class="w-10 h-10 md:w-12 md:h-12 object-contain mb-2 hover:scale-110 transition-transform duration-300">
+                <span class="text-[10px] md:text-xs font-bold text-blue-light leading-tight">Wide Range in
+                  Stock</span>
+              </div>
+              <div class="flex flex-col items-center">
+                <img src="assets/t4.png" alt="Fast Delivery"
+                  class="w-10 h-10 md:w-12 md:h-12 object-contain mb-2 hover:scale-110 transition-transform duration-300">
+                <span class="text-[10px] md:text-xs font-bold text-blue-light leading-tight">Fast Delivery</span>
+              </div>
+            </div>
+          </div>
+          <!-- Tiny bottom spacing/aligner to match height -->
+          <div class="h-0"></div>
+        </div>
+
+      </div>
+
+      <!-- CTA Banner: Start Your Next Discovery Today -->
+      <div
+        class="max-w-5xl mx-auto bg-[#cde0f2]/60 border border-white/40 rounded-[32px] p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden backdrop-blur-sm shadow-[0_15px_35px_rgba(37,62,117,0.06)]">
+        <!-- Sub-element overlay for subtle gradient depth -->
+        <div class="absolute inset-0 bg-gradient-to-r from-blue-light/5 to-transparent pointer-events-none"></div>
+
+        <div class="flex-1 relative z-10 text-center md:text-left">
+          <h2
+            class="text-3xl md:text-4xl lg:text-4.5xl font-black text-blue-light tracking-tight font-display uppercase leading-[1.1] mb-3">
+            Start Your Next<br> Discovery Today!
+          </h2>
+          <p class="text-text-charcoal/90 text-sm md:text-base font-semibold leading-relaxed max-w-xl">
+            Explore the Minelab range and find the perfect detector for your next adventure
+          </p>
+        </div>
+
+        <div class="shrink-0 relative z-10">
+          <a href="#detectors"
+            class="inline-block bg-gradient-to-r from-accent-orange to-accent-orange-hover hover:from-accent-orange-hover hover:to-accent-orange transition-all duration-300 text-white font-extrabold text-sm md:text-base px-8 py-4 rounded-2xl shadow-md hover:shadow-lg hover:scale-[1.03] active:scale-[0.98] uppercase tracking-wider">
+            Shop Minelab Range
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 14. FOOTER -->
+  <footer class="bg-blue-light text-white pt-28 md:pt-36 pb-0 -mt-16 relative z-0 font-body">
+    <div class="container-custom">
+      <!-- Top Grid: 4 Columns (Responsive layout matching design columns) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12 md:mb-6">
+
+        <!-- Col 1: About & Socials (Wider column) -->
+        <div class="flex flex-col md:col-span-2 lg:col-span-5 justify-end">
+          <p class="text-[#e2edf8]/80 text-sm leading-relaxed mb-8">
+            The UK's home of metal detecting. Community-first, education-led, passionate about the world's greatest
+            hobby since 1994.
+          </p>
+          <h4 class="text-white font-extrabold text-xs uppercase tracking-wider mb-4">Follow Crawfords</h4>
+          <div class="flex items-center gap-5">
+            <!-- Facebook -->
+            <a href="https://facebook.com/crawfords" target="_blank"
+              class="text-white/80 hover:text-white hover:scale-110 transition-all duration-200" aria-label="Facebook">
+              <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                <path
+                  d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z" />
+              </svg>
+            </a>
+            <!-- Instagram -->
+            <a href="https://instagram.com/crawfords" target="_blank"
+              class="text-white/80 hover:text-white hover:scale-110 transition-all duration-200" aria-label="Instagram">
+              <svg class="w-6 h-6 stroke-current stroke-[2.5] fill-none" viewBox="0 0 24 24">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+              </svg>
+            </a>
+            <!-- YouTube -->
+            <a href="https://youtube.com/crawfords" target="_blank"
+              class="text-white/80 hover:text-white hover:scale-110 transition-all duration-200" aria-label="YouTube">
+              <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                <path
+                  d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.108C19.524 3.545 12 3.545 12 3.545s-7.525 0-9.388.51a3.002 3.002 0 0 0-2.11 2.108C0 8.024 0 12 0 12s0 3.976.502 5.837a3.003 3.003 0 0 0 2.11 2.108c1.863.51 9.388.51 9.388.51s7.525 0 9.388-.51a3.002 3.002 0 0 0 2.11-2.108C24 15.976 24 12 24 12s0-3.976-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+              </svg>
+            </a>
+            <!-- TikTok -->
+            <a href="https://tiktok.com/@crawfords" target="_blank"
+              class="text-white/80 hover:text-white hover:scale-110 transition-all duration-200" aria-label="TikTok">
+              <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                <path
+                  d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.02 1.59 4.23.85.99 2.02 1.69 3.29 2.01v3.91c-1.39-.03-2.76-.44-3.93-1.2-.42-.27-.8-.59-1.15-.96v5.82c.04 2.22-.88 4.41-2.5 5.92-1.92 1.84-4.7 2.51-7.25 1.76-2.58-.73-4.66-2.88-5.32-5.5-.83-3.13.78-6.52 3.82-7.53.86-.3 1.78-.4 2.68-.29v3.92c-.67-.11-1.37-.05-2 .16-.92.29-1.66 1.05-1.92 1.98-.38 1.25.17 2.67 1.26 3.32.99.63 2.31.57 3.23-.15.54-.41.87-.99.9-1.67L12.5 0l.025.02z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2: SHOP -->
+        <div class="footer-col lg:col-span-2 border-b border-white/10 md:border-b-0 pb-2 md:pb-0">
+          <button
+            class="footer-toggle flex items-center justify-between w-full md:cursor-default focus:outline-none mb-2 md:mb-6"
+            aria-expanded="false">
+            <h4 class="text-white font-extrabold text-xs uppercase tracking-wider">SHOP</h4>
+            <i data-lucide="chevron-down" class="w-4 h-4 text-white/60 md:hidden transition-transform duration-300"></i>
+          </button>
+          <ul class="footer-menu space-y-3.5 hidden md:block">
+            <li><a href="#"
+                class="text-[#e2edf8]/70 hover:text-white transition-colors duration-200 text-sm font-medium">All
+                Detectors</a></li>
+            <li><a href="#"
+                class="text-[#e2edf8]/70 hover:text-white transition-colors duration-200 text-sm font-medium">Minelab
+                Range</a></li>
+            <li><a href="#"
+                class="text-[#e2edf8]/70 hover:text-white transition-colors duration-200 text-sm font-medium">Beginner
+                Detectors</a></li>
+            <li><a href="#"
+                class="text-[#e2edf8]/70 hover:text-white transition-colors duration-200 text-sm font-medium">Accessories</a>
+            </li>
+            <li><a href="#"
+                class="text-[#e2edf8]/70 hover:text-white transition-colors duration-200 text-sm font-medium">Clothing &
+                Gear</a></li>
+            <li><a href="#"
+                class="text-[#e2edf8]/70 hover:text-white transition-colors duration-200 text-sm font-medium">Sale
+                Items</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: LEARN -->
+        <div class="footer-col lg:col-span-3 border-b border-white/10 md:border-b-0 pb-42 md:pb-0">
+          <button
+            class="footer-toggle flex items-center justify-between w-full md:cursor-default focus:outline-none mb-2 md:mb-6"
+            aria-expanded="false">
+            <h4 class="text-white font-extrabold text-xs uppercase tracking-wider">LEARN</h4>
+            <i data-lucide="chevron-down" class="w-4 h-4 text-white/60 md:hidden transition-transform duration-300"></i>
+          </button>
+          <ul class="footer-menu space-y-3.5 hidden md:block">
+            <li><a href="#"
+                class="text-[#e2edf8]/70 hover:text-white transition-colors duration-200 text-sm font-medium">Beginner's
+                Guide</a></li>
+            <li><a href="#"
+                class="text-[#e2edf8]/70 hover:text-white transition-colors duration-200 text-sm font-medium">Detector
+                Reviews</a></li>
+            <li><a href="#"
+                class="text-[#e2edf8]/70 hover:text-white transition-colors duration-200 text-sm font-medium">Finds
+                Identification</a></li>
+            <li><a href="#"
+                class="text-[#e2edf8]/70 hover:text-white transition-colors duration-200 text-sm font-medium">Land
+                Permissions</a></li>
+            <li><a href="#"
+                class="text-[#e2edf8]/70 hover:text-white transition-colors duration-200 text-sm font-medium">Video
+                Tutorials</a></li>
+            <li><a href="#"
+                class="text-[#e2edf8]/70 hover:text-white transition-colors duration-200 text-sm font-medium">Blog &
+                News</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: INFO -->
+        <div class="footer-col lg:col-span-2 pb-2 md:pb-0">
+          <button
+            class="footer-toggle flex items-center justify-between w-full md:cursor-default focus:outline-none mb-2 md:mb-6"
+            aria-expanded="false">
+            <h4 class="text-white font-extrabold text-xs uppercase tracking-wider">INFO</h4>
+            <i data-lucide="chevron-down" class="w-4 h-4 text-white/60 md:hidden transition-transform duration-300"></i>
+          </button>
+          <ul class="footer-menu space-y-3.5 hidden md:block">
+            <li><a href="#"
+                class="text-[#e2edf8]/70 hover:text-white transition-colors duration-200 text-sm font-medium">Complaints</a>
+            </li>
+            <li><a href="#"
+                class="text-[#e2edf8]/70 hover:text-white transition-colors duration-200 text-sm font-medium">Finance
+                (Snap Finance)</a></li>
+            <li><a href="#"
+                class="text-[#e2edf8]/70 hover:text-white transition-colors duration-200 text-sm font-medium">Vulnerable
+                Customer</a></li>
+            <li><a href="#"
+                class="text-[#e2edf8]/70 hover:text-white transition-colors duration-200 text-sm font-medium">Policies</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Horizontal Divider -->
+      <div class="border-t border-white/10 mb-6 md:my-12"></div>
+
+      <!-- Bottom Layout: Finance Block | Logo -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
+        <!-- Left Side: Finance Information -->
+        <div
+          class="lg:col-span-7 flex flex-col justify-between pr-0 lg:pr-12 border-b border-white/10 lg:border-b-0 lg:border-r lg:border-white/10 pb-8 lg:pb-0">
+          <div>
+            <h4 class="text-white font-extrabold text-xs uppercase tracking-wider mb-5">Finance Information</h4>
+            <div class="space-y-4 text-[#e2edf8]/60 text-xs leading-relaxed font-normal">
+              <p>
+                Crawfords Electronics Limited (Company Number: 04361857, FRN: 955130), trading as Crawfords Metal
+                Detectors, are authorised and regulated by the Financial Conduct Authority.
+              </p>
+              <p>
+                We are a credit broker, not a lender. Credit is subject to status and affordability.
+              </p>
+              <p>
+                Credit is provided by Novuna Personal Finance (register no. 704348), a trading style of Mitsubishi HC
+                Capital UK PLC, and Snap Finance Ltd (register no. 741813).
+              </p>
+              <p class="text-[#e2edf8]/90 font-extrabold mt-2">
+                Terms & Conditions apply.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side: Logo -->
+        <div class="lg:col-span-5 flex items-center justify-center lg:justify-end pl-0 lg:pl-12 pt-8 lg:pt-0">
+          <div class="w-full max-w-[80%]">
+            <img src="assets/logo-white.png" alt="Crawfords Metal Detectors" class="w-full h-auto object-contain">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Copyright Bar -->
+    <div class="bg-[#07172c] py-6 text-xs text-[#e2edf8]/50 mt-16 border-t border-white/5">
+      <div
+        class="container-custom flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
+        <div>
+          &copy; 2026 Crawfords Metal Detectors UK
+        </div>
+        <div>
+          Ecommerce website built by <span class="text-[#e2edf8]/80 font-extrabold">Inceptial Technologies</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/441724845608" target="_blank"
+    class="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50 w-14 h-14 md:w-16 md:h-16 transition-all duration-300 hover:scale-110 active:scale-95 filter drop-shadow-[0_4px_12px_rgba(0,0,0,0.15)]"
+    title="Chat with us on WhatsApp">
+    <img src="assets/whatsapp.png" alt="WhatsApp" class="w-full h-full object-contain">
+  </a>
+
+  <!-- Lucide CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

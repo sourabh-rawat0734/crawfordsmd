@@ -28,6 +28,16 @@ document.addEventListener('DOMContentLoaded', () => {
       ].join(':');
 
       timerElement.textContent = formattedTime;
+
+      const bannerTimer = document.getElementById('dispatch-timer-banner');
+      if (bannerTimer) {
+        bannerTimer.textContent = [
+          String(hours).padStart(2, '0'),
+          String(minutes).padStart(2, '0'),
+          String(seconds).padStart(2, '0')
+        ].join(' : ');
+      }
+
       totalSeconds--;
     };
 
@@ -273,12 +283,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const visibleCards = Array.from(productCards).filter(card => !card.classList.contains('hidden'));
       if (visibleCards.length === 0) return;
       
-      const containerWidth = productGrid.clientWidth;
       const cardWidth = visibleCards[0].getBoundingClientRect().width || 1;
-      const visibleCount = Math.round(containerWidth / cardWidth) || 1;
       
-      // Page by screen width minus one card width for visual context, or scroll 1 card on mobile
-      const scrollStep = cardWidth * Math.max(1, visibleCount - 1);
+      // Scroll exactly 1 item at a time (card width + 16px gap-4)
+      const scrollStep = cardWidth + 16;
       
       const currentScroll = productGrid.scrollLeft;
       const targetLeft = direction === 'next' ? currentScroll + scrollStep : currentScroll - scrollStep;
@@ -665,13 +673,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     guidesPrevBtn.addEventListener('click', () => {
       const card = guidesGrid.querySelector('.snap-start');
-      const cardWidth = card ? card.getBoundingClientRect().width + 24 : 340; // card width + gap
+      const gap = window.innerWidth >= 768 ? 16 : 8; // gap-4 (16px) on desktop, gap-2 (8px) on mobile
+      const cardWidth = card ? card.getBoundingClientRect().width + gap : 340;
       smoothScrollGuides(guidesGrid.scrollLeft - cardWidth);
     });
 
     guidesNextBtn.addEventListener('click', () => {
       const card = guidesGrid.querySelector('.snap-start');
-      const cardWidth = card ? card.getBoundingClientRect().width + 24 : 340; // card width + gap
+      const gap = window.innerWidth >= 768 ? 16 : 8; // gap-4 (16px) on desktop, gap-2 (8px) on mobile
+      const cardWidth = card ? card.getBoundingClientRect().width + gap : 340;
       smoothScrollGuides(guidesGrid.scrollLeft + cardWidth);
     });
 
@@ -766,4 +776,34 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  // 9. Footer Collapsible Sections on Mobile
+  const footerToggles = document.querySelectorAll('.footer-toggle');
+  footerToggles.forEach(toggle => {
+    toggle.addEventListener('click', () => {
+      // Only collapse/expand on mobile (width < 768px)
+      if (window.innerWidth >= 768) return;
+
+      const menu = toggle.nextElementSibling;
+      const chevron = toggle.querySelector('[data-lucide="chevron-down"]');
+      
+      if (menu) {
+        const isCollapsed = menu.classList.contains('hidden');
+        if (isCollapsed) {
+          menu.classList.remove('hidden');
+          toggle.setAttribute('aria-expanded', 'true');
+          if (chevron) {
+            chevron.style.transform = 'rotate(180deg)';
+          }
+        } else {
+          menu.classList.add('hidden');
+          toggle.setAttribute('aria-expanded', 'false');
+          if (chevron) {
+            chevron.style.transform = 'rotate(0deg)';
+          }
+        }
+      }
+    });
+  });
 });
+
